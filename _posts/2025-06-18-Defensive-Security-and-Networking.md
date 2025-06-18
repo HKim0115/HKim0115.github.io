@@ -23,19 +23,24 @@ The Internet is one giant network that consists of many, many small networks wit
 
 ## Understanding Private and Public IP Addresses
 Q1: Why do two devices have the same public IP but different private IPs?
+
 A: They are connected to the same router (Wi-Fi network). The router has one public IP, and each device connected to it gets a unique private IP inside the local network.
 
 Q2: Does each device have both a public and a private IP address?
+
 A: Not exactly. Each device has only a private IP. The public IP belongs to the router, which communicates with the internet on behalf of all devices.
 
 Q3: If two people use the same internet company, can their public IPs be the same?
+
 A: Normally, no — each router gets its own public IP from the ISP.
 However, with CGNAT (Carrier-Grade NAT), multiple users may share the same public IP.
 
 Q4: Do public IP addresses change over time?
+
 A: Yes, if the ISP assigns a dynamic IP, it may change periodically or after restarting the router. A static IP stays the same but usually requires a paid plan.
 
 Q5: When devices in the same network communicate, do they use private IPs?
+
 A: Yes! Devices in the same local network use private IPs to communicate.
 However, the data still goes through the router, which handles and directs the traffic inside the network.
 
