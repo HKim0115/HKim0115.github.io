@@ -1,4 +1,4 @@
-# Introduction to LAN (Local Area Network) – Summary
+# Introduction to LAN (Local Area Network) 
 
 ## What is a LAN?
 A **Local Area Network (LAN)** connects devices within a limited area (like a home, school, or office) to communicate and share resources such as files, printers, or internet access.
