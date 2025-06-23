@@ -73,8 +73,3 @@ A **Local Area Network (LAN)** connects devices within a limited area (like a ho
 2. **Offer** – Server offers available IP
 3. **Request** – Device accepts the offer
 4. **Acknowledge** – Server confirms
-
----
-
- **End of Intro to LAN Summary**  
- Ideal for beginners starting with networking fundamentals.
