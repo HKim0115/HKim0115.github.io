@@ -1,3 +1,7 @@
+---
+categories: [Pre Security]
+---
+
 # My first step for Cyber security specialist 
 
 Just completed my first step into the world of cybersecurity with the Offensive Security Intro on TryHackMe!

@@ -1,3 +1,7 @@
+---
+categories: [Pre Security]
+---
+
 # Introduction to LAN (Local Area Network) 
 
 ## What is a LAN?
