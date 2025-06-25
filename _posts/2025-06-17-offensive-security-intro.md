@@ -1,5 +1,6 @@
 ---
 categories: [Pre Security]
+layout : single
 ---
 
 # My first step for Cyber security specialist 
