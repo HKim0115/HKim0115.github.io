@@ -4,8 +4,6 @@ categories: [Pre Security]
 layout: single
 ---
 
-# Introduction to HTTP & HTTPS
-
 ## What is HTTP?
 
 **HTTP (HyperText Transfer Protocol)** is a set of rules for transferring data (HTML, images, video, etc.) between a client (browser) and a web server. It was developed between 1989–1991 by Tim Berners-Lee's team.
