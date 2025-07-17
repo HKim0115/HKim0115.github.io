@@ -11,33 +11,34 @@ Learning Objectives
 •Check running processes
 
 ## Key Commands
-|Command|Description|Example|
+
+|Command| Description| Example|
 |----------|----------|----------|
-|ver|	Display Windows version	|ver
-|set|	View or set environment variables	|set PATH
-|systeminfo|	Display detailed system information	|systeminfo
-|driverquery|	List installed drivers	|driverquery
-|more|	View long output one screen at a time	| "type file.txt | more"
-|help|	Show help for commands	|help copy
-|cls|	Clear the screen	|cls
-|ipconfig|	Show network configuration	|ipconfig
-|ping|	Test network connection	|ping google.com
-|tracert|	Trace route to a host	|tracert google.com
-|nslookup|	Query DNS information	|nslookup google.com
-|netstat|	Display network connections	|netstat -an
-|cd|	Change directory	|cd C:\Users
-|dir|	List directory contents	|dir
-|tree|	Display folder structure	|tree /F
-|mkdir|	Create a new folder	mkdir| newFolder
-|type|	Show file contents	type |notes.txt
-|copy|	Copy files	|copy a.txt b.txt
-|move|	Move files	|move a.txt D:\
-|del / erase|	Delete files	|del test.txt
-|*	|Wildcard for multiple files	|del *.txt
-|tasklist|	List running processes	|tasklist
-|/FI|	Filter results	tasklist |/FI "IMAGENAME eq chrome.exe"
-|chkdsk|	Check disk for errors	|chkdsk C:
-|sfc /scannow|	Scan system files for integrity	|sfc /scannow
+|ver|	Display Windows version|	ver|
+|set|	View or set environment variables|	set PATH|
+|systeminfo|	Display detailed system information|	systeminfo|
+|driverquery|	List installed drivers|   driverquery|
+|more|	View long output one screen at a time|	 "type file.txt | more"|
+|help|	Show help for commands|	 help copy|
+|cls|	Clear the screen	|cls|
+|ipconfig|	Show network configuration	|ipconfig|
+|ping|	Test network connection	|ping google.com|
+|tracert|	Trace route to a host	|tracert google.com|
+|nslookup|	Query DNS information	|nslookup google.com|
+|netstat|	Display network connections	|netstat -an|
+|cd|	Change directory	|cd C:\Users|
+|dir|	List directory contents	|dir|
+|tree|	Display folder structure	|tree /F|
+|mkdir|	Create a new folder	mkdir| newFolder|
+|type|	Show file contents	type |notes.txt|
+|copy|	Copy files	|copy a.txt b.txt|
+|move|	Move files	|move a.txt D:\|
+|del / erase|	Delete files	|del test.txt|
+|*	|Wildcard for multiple files	|del *.txt|
+|tasklist|	List running processes	|tasklist|
+|/FI|	Filter results	tasklist |/FI "IMAGENAME eq chrome.exe"|
+|chkdsk|	Check disk for errors	|chkdsk C:|
+|sfc /scannow|	Scan system files for integrity	|sfc /scannow|
 
 ### PowerShell
 
@@ -50,12 +51,12 @@ Learning Objectives
 
 Common Cmdlets
 
-|Cmdlet|	Description|	Example
+|Cmdlet|	Description|	Example|
 |----------|----------|----------|
 |Get-Content|	Read file content|	Get-Content file.txt|
 |Set-Location|	Change directory|	Set-Location C:\Users|
 |Get-Command|	List available commands|	Get-Command|
-|CommandType|	View command type|	Get-Command ls | Select-Object CommandType|
+|CommandType|	View command type|	"Get-Command ls | Select-Object CommandType"|
 |Get-Help|	Show help for cmdlets|	Get-Help Get-Content|
 |Get-Date|	Display current date/time|	Get-Date|
 |Get-Alias|	View command aliases|	Get-Alias|
@@ -66,6 +67,7 @@ Common Cmdlets
 |Remove-Item|	Delete a file or folder|	Remove-Item file.txt|
 |Copy-Item|	Copy files/folders|	Copy-Item a.txt b.txt|
 |Move-Item|	Move files/folders|	Move-Item a.txt D:\|
+
 
 Piping, Filtering, and Sorting
 -Pipe output to another command
@@ -96,6 +98,7 @@ Learning Objectives
 •Write basic shell scripts
 
 Common Commands
+
 |Command|	Description|	Example|
 |----------|----------|----------|
 |pwd|	Show current directory|	pwd|
