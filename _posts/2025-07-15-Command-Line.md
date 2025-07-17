@@ -10,7 +10,7 @@ Learning Objectives
 •Manage files and folders
 •Check running processes
 
-Key Commands
+## Key Commands
 |Command|Description|Example|
 |----------|----------|----------|
 |ver|	Display Windows version	|ver
