@@ -42,11 +42,11 @@ Learning Objectives
 
 ### PowerShell
 
-Learning Objectives
-•Understand what PowerShell is and its capabilities
-•Learn the basic structure of PowerShell language
-•Run basic PowerShell commands
-•Understand PowerShell's role in cybersecurity
+Learning Objectives  
+•Understand what PowerShell is and its capabilities  
+•Learn the basic structure of PowerShell language  
+•Run basic PowerShell commands  
+•Understand PowerShell's role in cybersecurity  
 
 
 Common Cmdlets
@@ -68,7 +68,7 @@ Common Cmdlets
 |Copy-Item|	Copy files/folders|	Copy-Item a.txt b.txt|
 |Move-Item|	Move files/folders|	Move-Item a.txt D:\ |
 
-
+  
 Piping, Filtering, and Sorting
 -Pipe output to another command
 
@@ -91,12 +91,12 @@ Piping, Filtering, and Sorting
 
 ### Linux Shell
 
-Learning Objectives
-•Interact with Linux shell
-•Use basic shell commands
-•Explore different types of shells (bash, zsh, etc.)
-•Write basic shell scripts
-
+Learning Objectives  
+•Interact with Linux shell  
+•Use basic shell commands  
+•Explore different types of shells (bash, zsh, etc.)  
+•Write basic shell scripts  
+  
 Common Commands
 
 |Command|	Description|	Example|
