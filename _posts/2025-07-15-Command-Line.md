@@ -18,7 +18,7 @@ Learning Objectives
 |set|	View or set environment variables|	set PATH|
 |systeminfo|	Display detailed system information|	systeminfo|
 |driverquery|	List installed drivers|   driverquery|
-|more|	View long output one screen at a time|	 "type file.txt | more"|
+|more|	View long output one screen at a time|	 type file.txt \| more|
 |help|	Show help for commands|	 help copy|
 |cls|	Clear the screen	|cls|
 |ipconfig|	Show network configuration	|ipconfig|
@@ -32,7 +32,7 @@ Learning Objectives
 |mkdir|	Create a new folder	mkdir| newFolder|
 |type|	Show file contents	type |notes.txt|
 |copy|	Copy files	|copy a.txt b.txt|
-|move|	Move files	|move a.txt D:\|
+|move|	Move files	|move a.txt D:\ |
 |del / erase|	Delete files	|del test.txt|
 |*	|Wildcard for multiple files	|del *.txt|
 |tasklist|	List running processes	|tasklist|
@@ -56,7 +56,7 @@ Common Cmdlets
 |Get-Content|	Read file content|	Get-Content file.txt|
 |Set-Location|	Change directory|	Set-Location C:\Users|
 |Get-Command|	List available commands|	Get-Command|
-|CommandType|	View command type|	"Get-Command ls | Select-Object CommandType"|
+|CommandType|	View command type|	Get-Command ls \| Select-Object CommandType|
 |Get-Help|	Show help for cmdlets|	Get-Help Get-Content|
 |Get-Date|	Display current date/time|	Get-Date|
 |Get-Alias|	View command aliases|	Get-Alias|
@@ -66,7 +66,7 @@ Common Cmdlets
 |New-Item|	Create a file or folder|	New-Item -Path . -Name file.txt -ItemType File|
 |Remove-Item|	Delete a file or folder|	Remove-Item file.txt|
 |Copy-Item|	Copy files/folders|	Copy-Item a.txt b.txt|
-|Move-Item|	Move files/folders|	Move-Item a.txt D:\|
+|Move-Item|	Move files/folders|	Move-Item a.txt D:\ |
 
 
 Piping, Filtering, and Sorting
