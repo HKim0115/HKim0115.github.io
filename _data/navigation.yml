@@ -1,9 +1,9 @@
 # main links
 main:
-  - title: "HomeLap"
-    url: /categories/#homelab
   - title: "Home"
     url: /
+  - title: "HomeLap"
+    url: /categories/#homelab
   - title: "Category"
     url: /categories/
   # - title: "About"
