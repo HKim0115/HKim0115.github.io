@@ -1,5 +1,5 @@
 ---
-categories: [Cyber Security 101]
+categories: [TryHackMe]
 ---
 
 # Windows Command Line

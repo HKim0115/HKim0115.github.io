@@ -1,5 +1,5 @@
 ---
-categories: [Pre Security]
+categories: [TryHackMe]
 ---
 
 # Linux Fundamentals - Part 1

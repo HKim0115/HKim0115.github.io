@@ -1,5 +1,5 @@
 ---
-categories: [Pre Security]
+categories: [TryHackMe]
 ---
 
 # Introduction to LAN (Local Area Network) 

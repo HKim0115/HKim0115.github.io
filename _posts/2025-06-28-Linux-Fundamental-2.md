@@ -1,5 +1,5 @@
 ---
-categories: [Pre Security]
+categories: [TryHackMe]
 ---
 
 # Linux Fundaental 2

@@ -1,5 +1,5 @@
 ---
-categories: [Pre Security]
+categories: [TryHackMe]
 ---
 
 # Basic Linux Commands & Concepts Summary

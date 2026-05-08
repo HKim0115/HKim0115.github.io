@@ -1,6 +1,6 @@
 ---
 title: "Intro to HTTP & HTTPS"
-categories: [Pre Security]
+categories: [TryHackMe]
 layout: single
 ---
 
