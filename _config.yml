@@ -17,7 +17,7 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 # Site Settings
 locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "White Hacker Kim"
+title                    : "Kim's Home Lab"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "HKim0115"
@@ -115,9 +115,9 @@ analytics:
 author:
   name             : "Hanul Kim"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Future **Cyber Security** Specialist"
+  bio              : "**Cyber Security** Specialist"
   location         : "Sydney"
-  email            :
+  email            : "hanul.kim0115@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
