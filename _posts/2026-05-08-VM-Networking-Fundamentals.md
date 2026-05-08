@@ -1,5 +1,5 @@
 ---
-categories: [Cybersecurity HomeLab]
+categories: [HomeLab]
 ---
 
 # Day 1. VM settings and Communication
