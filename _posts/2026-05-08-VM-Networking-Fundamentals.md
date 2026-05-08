@@ -36,8 +36,11 @@ Sending **ping** from Kali to Windows
 ![imagie](/assets/firewall.png)
 - Configure window's firewall rule (Enable file share)
 Step 1: Windows Defender Firewall with Advanced Security
+
 Step 2: Inbound Rules
+
 Step 3: File and Printer sharing (Echo Request - ICMPv4-In)
+
 Step 4: Enable
 
 ![imagie](/assets/second_ping.png)
