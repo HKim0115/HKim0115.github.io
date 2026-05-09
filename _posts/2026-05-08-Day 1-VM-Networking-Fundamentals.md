@@ -1,5 +1,6 @@
 ---
 categories: [HomeLab]
+title: "Day 1. VM Networking Fundamentals"
 ---
 
 ### Environment
