@@ -55,7 +55,7 @@ After enabling the firewall rule, the ping test succeeded and confirmed communic
 
 
 
-### 3. Observations & Reflections
+## 3. Observations & Reflections
 
 During the lab, I noticed that the ping request from Kali Linux to Windows 11 initially failed because Windows Firewall blocked ICMP echo requests.
 
