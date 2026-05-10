@@ -87,7 +87,9 @@ smbclient //192.168.56.2/LabShare -U hkim
 Inside the SMB session, I tested:
 
 ls  (Checking what files are in the LabShare folder)
+
 get secret.txt  (Download secret.txt file from Windows to Kali Linux)
+
 put hello.txt   (Share hello.txt file from Kali Linux to Windows)
 
 
