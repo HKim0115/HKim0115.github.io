@@ -86,11 +86,14 @@ smbclient //192.168.56.2/LabShare -U hkim
 
 Inside the SMB session, I tested:
 
-ls  (Checking what files are in the LabShare folder)
+#### ls 
+   (Checking what files are in the LabShare folder)
 
-get secret.txt  (Download secret.txt file from Windows to Kali Linux)
+#### get secret.txt
+   (Download secret.txt file from Windows to Kali Linux)
 
-put hello.txt   (Share hello.txt file from Kali Linux to Windows)
+#### put hello.txt
+   (Share hello.txt file from Kali Linux to Windows)
 
 
 This confirmed successful authenticated SMB interaction and file transfer between both VMs.
