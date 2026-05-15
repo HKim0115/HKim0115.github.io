@@ -50,8 +50,8 @@ Topics:
 
 #### Related Posts
 
-* [Day 1 — VM Networking Fundamentals](/_posts/Day 1-VM-Networking-Fundamentals)
-* [Day 2 — Nmap Scanning and SMB Enumeration](/_posts/Day 2-Nmap-and-SMB)
+* [Day 1 — VM Networking Fundamentals](/_posts/2026-05-08-Day%201-VM-Networking-Fundamentals.md)
+* [Day 2 — Nmap Scanning and SMB Enumeration](/_posts/2026-05-10-Day%202-Nmap-and-SMB.md)
 
 ---
 
