@@ -16,7 +16,7 @@ ICMP ping testing
 Nmap scanning
 
 comparing Windows Public vs Private network behavior
----
+
 
 1. Initial Wireshark Capture (Background Traffic)
 
