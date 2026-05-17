@@ -18,7 +18,7 @@ Nmap scanning
 comparing Windows Public vs Private network behavior
 
 
-1. Initial Wireshark Capture (Background Traffic)
+### 1. Initial Wireshark Capture (Background Traffic)
 
 ![imagie](/assets/wireshark1.png)
 
@@ -45,7 +45,7 @@ Example:
 Who has 192.168.56.2?
 
 
-2. Kali Linux Ping Test
+### 2. Kali Linux Ping Test
 
 ![imagie](/assets/kaliping.png)
 
@@ -64,7 +64,7 @@ successful communication between Kali and Windows
 low latency inside the Host-Only network
 
 
-3. Wireshark Capture During Ping
+### 3. Wireshark Capture During Ping
 
 ![imagie](/assets/wireshark2 ping.png)
 
@@ -93,7 +93,7 @@ This confirmed:
 both VMs were successfully communicating through the internal virtual network
 
 
-4. Initial Nmap Scan (Windows Network Profile = Public)
+### 4. Initial Nmap Scan (Windows Network Profile = Public)
 
 ![imagie](/assets/wireshark3nmap.png)
 
@@ -122,7 +122,7 @@ Analysis:
 Windows Firewall restricted service visibility because the network category was configured as Public
 
 
-5. Nmap Scan After Changing Windows Network Profile to Private
+### 5. Nmap Scan After Changing Windows Network Profile to Private
 
 ![imagie](/assets/kalinmap.png)
 
@@ -148,7 +148,7 @@ more services became visible after changing the network profile to Private
 Windows trust settings directly affected exposed services and attack surface visibility
 
 
-6. Wireshark Capture After Private Network Change
+### 6. Wireshark Capture After Private Network Change
 
 ![imagie](/assets/wireshark4nmap2.png)
 
@@ -188,7 +188,7 @@ RST/ACK explanation:
 connection resets commonly generated during aggressive service detection and scanning activity
 
 
-7. SYN Packet Filtering
+### 7. SYN Packet Filtering
 
 ![imagie](/assets/wireshark5nmap3.png)
 
