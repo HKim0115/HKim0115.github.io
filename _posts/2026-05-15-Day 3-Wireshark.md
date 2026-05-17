@@ -27,8 +27,11 @@ Before generating any traffic manually, Wireshark was already capturing packets 
 Observed protocols:
 
 DHCP
+
 ARP
+
 IGMPv3
+
 ICMPv6
 
 Important observations:
@@ -50,7 +53,9 @@ Who has 192.168.56.2?
 Results:
 
 7 packets transmitted
+
 7 packets received
+
 0% packet loss
 
 Important observations:
@@ -66,7 +71,9 @@ low latency inside the Host-Only network
 Wireshark captured:
 
 ICMP Echo Request
+
 ICMP Echo Reply
+
 ARP traffic
 
 Important observations:
@@ -78,6 +85,7 @@ ARP resolution occurred before communication started
 Example:
 
 Echo (ping) request
+
 Echo (ping) reply
 
 This confirmed:
@@ -102,8 +110,11 @@ most ports appeared filtered or ignored
 Example scanned ports:
 
 80
+
 445
+
 53
+
 25
 
 Analysis:
@@ -122,9 +133,13 @@ nmap -sV 192.168.56.2
 Detected open ports:
 
 Port	Service
+
 135	MSRPC
+
 139	NetBIOS
+
 445	SMB
+
 5357	HTTPAPI
 
 Important observations:
@@ -142,10 +157,15 @@ Wireshark showed a much more complete TCP communication process.
 Observed activity:
 
 SYN packets
+
 SYN/ACK responses
+
 ACK packets
+
 HTTP requests
+
 SMB-related traffic
+
 RST/ACK packets
 
 Important observations:
@@ -160,6 +180,7 @@ SYN → SYN/ACK → ACK
 Additional traffic:
 
 GET / HTTP/1.0
+
 HTTP/1.1 503 Service Unavailable
 
 RST/ACK explanation:
@@ -191,9 +212,11 @@ Example:
 This demonstrated:
 
 how defenders can identify reconnaissance and port scanning activity using packet analysis tools like Wireshark
-Final Observations
 
-### Key takeaways:
+
+### Final Observations
+
+Key takeaways:
 
 Wireshark provides visibility into real network communication between systems
 ICMP, ARP, TCP handshakes, and service detection traffic can all be observed directly
