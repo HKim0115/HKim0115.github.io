@@ -10,10 +10,13 @@ In this lab, I used Wireshark to monitor network traffic between my Kali Linux V
 ### Main activities:
 
 observing background traffic
-ICMP ping testing
-Nmap scanning
-comparing Windows Public vs Private network behavior
 
+ICMP ping testing
+
+Nmap scanning
+
+comparing Windows Public vs Private network behavior
+---
 
 1. Initial Wireshark Capture (Background Traffic)
 
