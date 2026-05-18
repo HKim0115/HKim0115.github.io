@@ -52,10 +52,11 @@ Topics:
 
 * [Day 1 — VM Networking Fundamentals](https://hkim0115.github.io/homelab/Day-1-VM-Networking-Fundamentals/)
 * [Day 2 — Nmap Scanning and SMB Enumeration](https://hkim0115.github.io/homelab/Day-2-Nmap-and-SMB/)
+* [Day 3 - Wireshark Traffic Analysis and Nmap Reconnaissance](https://hkim0115.github.io/homelab/Day-3-Wireshark/)
 
 ---
 
-### Phase 2 — System Monitoring & Visibility
+### Phase 2 - System Monitoring & Visibility
 
 Topics:
 
