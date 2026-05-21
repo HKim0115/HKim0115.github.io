@@ -16,10 +16,10 @@ To understand what Event Viewer logs, I'll send pings and use Smbclient from Kal
 
 I'll monitor the security log in Event Viewer. 
 
-![imagie](/assets/1eventviewer.png)
-![imagie](/assets/2windowslog.png)
-![imagie](/assets/3securitylog.png)
-![imagie](/assets/3securitylog2.png)
+![image](/assets/1eventviewer.png)
+![image](/assets/2windowslog.png)
+![image](/assets/3securitylog.png)
+![image](/assets/3securitylog2.png)
 
 
 ### Ping from Kali Linux
@@ -32,28 +32,28 @@ This demonstrated the importance of using multiple monitoring tools during inves
 
 I used *Smbclient* which is also used in day2 posting to generate logs in Event Viewer.
 
-![imagie](/assets/smbclient.png)
+![image](/assets/smbclient.png)
 
-1. Intentional Failed Login
+**1. Intentional Failed Login
 
 Failed log in attempts are very common in real life. 
 
 So, I wanted to see what it looks like.
 
-![imagie](/assets/loginfailed.png)
+![image](/assets/loginfailed.png)
 
 
-2. Successful Successful Login
+**2. Successful Successful Login
 
 And now I can compare with successful log in history. 
 
-![imagie](/assets/loginsuccess.png)
+![image](/assets/loginsuccess.png)
 
 
 After successful authentication, an active SMB session was established between the Kali and Windows VMs.
 
-![imagie](/assets/smbsession.png)
-![imagie](/assets/smbsession2.png)
+![image](/assets/Smbsession.png)
+![image](/assets/smbsession2.png)
 
 
 ### Wireshark Capture
@@ -61,7 +61,7 @@ After successful authentication, an active SMB session was established between t
 Wireshark captured SMB2 KeepAlive requests and responses between the two VMs.  
 This showed that the SMB session remained active after authentication and continuously exchanged network traffic.
 
-![imagie](/assets/wiresharksmb.png)
+![image](/assets/wiresharksmb.png)
 
 
 ### Why this matters for Defender
