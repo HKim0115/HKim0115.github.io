@@ -30,22 +30,22 @@ This demonstrated the importance of using multiple monitoring tools during inves
 
 ### Smbclient
 
-I used *Smbclient* which is also used in day2 posting to generate logs in Event Viewer.
+I used *Smbclient* which is also used in my day2 post to generate logs in Event Viewer.
 
 ![image](/assets/smbclient.png)
 
 **1. Intentional Failed Login**
 
-Failed log in attempts are very common in real life. 
+Failed login attempts are very common in real life. 
 
 So, I wanted to see what it looks like.
 
 ![image](/assets/loginfailed.png)
 
 
-**2. Successful Successful Login**
+**2. Successful Login**
 
-And now I can compare with successful log in history. 
+And now I can compare with successful login history. 
 
 ![image](/assets/loginsuccess.png)
 
