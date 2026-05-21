@@ -70,7 +70,7 @@ Topics:
 
 ### Related Posts
 
-* Coming soon
+* [Day 4 — Event Viewer & Security Monitoring](https://hkim0115.github.io/homelab/Day-4-Event-Viewer-Monitoring/)
 
 ---
 
