@@ -34,7 +34,7 @@ I used *Smbclient* which is also used in day2 posting to generate logs in Event 
 
 ![image](/assets/smbclient.png)
 
-**1. Intentional Failed Login
+**1. Intentional Failed Login**
 
 Failed log in attempts are very common in real life. 
 
@@ -43,7 +43,7 @@ So, I wanted to see what it looks like.
 ![image](/assets/loginfailed.png)
 
 
-**2. Successful Successful Login
+**2. Successful Successful Login**
 
 And now I can compare with successful log in history. 
 
