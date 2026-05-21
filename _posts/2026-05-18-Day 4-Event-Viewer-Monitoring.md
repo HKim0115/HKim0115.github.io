@@ -89,9 +89,15 @@ However, during the lab, I learned that SIEM platforms mainly collect, centraliz
 
 
 Windows / Sysmon / Applications
+
         ↓
+
      Generate Logs
+
         ↓
+
    Forward to SIEM
+
         ↓
+        
  Search, Correlation, Alerts
