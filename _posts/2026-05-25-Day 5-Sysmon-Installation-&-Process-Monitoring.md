@@ -98,6 +98,25 @@ Sysmon successfully recorded:
 
 This was important because Sysmon was not only logging that `PING.EXE` was executed, but also exactly how it was executed.
 
+<br>
+
+### Why This Matters
+
+During investigations, process names alone are often not enough to determine whether activity is normal or suspicious.
+
+<br>
+
+### Potential Detection Opportunities
+
+The activities observed during this lab could potentially be monitored through:
+
+- unusual PowerShell execution
+- suspicious command-line arguments
+- abnormal parent-child process relationships
+- unexpected administrative tool usage
+
+This helped me better understand how endpoint telemetry can support detection and investigation workflows.
+
 
 ### Observations & Reflections
 
