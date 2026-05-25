@@ -24,11 +24,11 @@ The long-term goal is to build a small lab environment where I can practice:
 
 Current setup:
 
-* Kali Linux VM
-* Windows 11 VM
-* VirtualBox
-* Nmap
-* Wireshark
+* Kali Linux VM & Windows 11 VM - 08 May 2026
+* Nmap - 10 May 2026
+* Wireshark - 15 May 2026
+* Windows Event Viewer - 18 May 2026
+* Sysmon - 25 May 2026
 
 I plan to continue expanding this environment as I progress.
 
