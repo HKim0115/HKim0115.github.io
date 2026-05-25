@@ -36,137 +36,10 @@ I plan to continue expanding this environment as I progress.
 
 # Homelab Roadmap
 
-### Phase 1 — Foundations
-
-Topics:
-
-* VM setup and networking
-* Connectivity testing
-* Network scanning and service enumeration
-* SMB analysis and shared folder access
-* Wireshark traffic analysis
-* Windows firewall and network profile observations
-* Basic Linux and Windows troubleshooting
-
-#### Related Posts
-
-* [Day 1 — VM Networking Fundamentals](https://hkim0115.github.io/homelab/Day-1-VM-Networking-Fundamentals/)
-* [Day 2 — Nmap Scanning and SMB Enumeration](https://hkim0115.github.io/homelab/Day-2-Nmap-and-SMB/)
-* [Day 3 — Wireshark Traffic Analysis and Nmap Reconnaissance](https://hkim0115.github.io/homelab/Day-3-Wireshark/)
-
----
-
-### Phase 2 — System Monitoring & Visibility
-
-Topics:
-
-* Windows Event Viewer
-* Authentication and failed login logs
-* Windows Defender Firewall monitoring
-* Linux log monitoring
-* Monitoring active network connections
-* Identifying suspicious activity and processes
-
-
-### Related Posts
-
-* [Day 4 — Event Viewer & Security Monitoring](https://hkim0115.github.io/homelab/Day-4-Event-Viewer-Monitoring/)
-
----
-
-### Phase 3 — Vulnerability Assessment
-
-Topics:
-
-* Advanced Nmap scanning
-* Nmap NSE scripts
-* SMB version and OS discovery
-* Vulnerability detection
-* Exposure analysis
-* Basic CVE research
-* Security hardening concepts
-
-### Related Posts
-
-* Coming soon
-
----
-
-### Phase 4 — Active Directory Fundamentals
-
-Topics:
-
-* Windows Server setup
-* Domain controller configuration
-* Active Directory users and groups
-* Authentication concepts
-* Group Policy basics
-* Domain enumeration
-
-### Related Posts
-
-* Coming soon
-
----
-
-### Phase 5 — SIEM & Security Monitoring
-
-Topics:
-
-* Sysmon installation
-* Centralized logging
-* Wazuh or Splunk setup
-* Windows and Linux log ingestion
-* Basic detection rules
-* Alert investigation workflows
-
-### Related Posts
-
-* Coming soon
-
----
-
-### Phase 6 — Incident Response Simulations
-
-Topics:
-
-* Brute-force simulations
-* Suspicious SMB activity analysis
-* PowerShell abuse simulations
-* IOC identification
-* Basic incident investigation
-* Incident documentation and reporting
-
-### Related Posts
-
-* Coming soon
-
----
-
-### Phase 7 — Documentation & Portfolio Development
-
-Topics:
-
-* Technical lab documentation
-* Network diagrams
-* Security observations and analysis
-* GitHub blog documentation
-* LinkedIn project summaries
-* Portfolio development
-
-### Related Posts
-
-* Coming soon
-
-
-
-
-
-
 
 ### Phase 1 — Foundations
 
-- [x][Day 1 — VM Networking Fundamentals](https://hkim0115.github.io/homelab/Day-1-VM-Networking-Fundamentals/)
+✅ [Day 1 — VM Networking Fundamentals](https://hkim0115.github.io/homelab/Day-1-VM-Networking-Fundamentals/)
 
 Topics
 
@@ -180,9 +53,9 @@ IP address checking
 
 connectivity testing
 
+<br>
 
-
-- [x] [Day 2 — Nmap Scanning and SMB Enumeration](https://hkim0115.github.io/homelab/Day-2-Nmap-and-SMB/)
+✅ [Day 2 — Nmap Scanning and SMB Enumeration](https://hkim0115.github.io/homelab/Day-2-Nmap-and-SMB/)
 
 
 Topics :
@@ -197,9 +70,9 @@ authentication attempts
 
 Windows firewall behavior
 
+<br>
 
-
-- [x] [Day 3 — Wireshark Traffic Analysis and Nmap Reconnaissance](https://hkim0115.github.io/homelab/Day-3-Wireshark/)
+✅ [Day 3 — Wireshark Traffic Analysis and Nmap Reconnaissance](https://hkim0115.github.io/homelab/Day-3-Wireshark/)
 
 Topics :
 
@@ -214,13 +87,14 @@ filtered ports
 Windows Public vs Private profile effects
 
 
-## Milestone 1 — Basic Network Visibility
+## Milestone 1 — Basic Network Visibility 🌱
 
 
+<br>
 
 ### Phase 2 — Windows Logging & Security Monitoring
 
-- [x] [Day 4 — Event Viewer & Security Monitoring](https://hkim0115.github.io/homelab/Day-4-Event-Viewer-Monitoring/)
+✅ [Day 4 — Event Viewer & Security Monitoring](https://hkim0115.github.io/homelab/Day-4-Event-Viewer-Monitoring/)
 
 Topics :
 
@@ -239,11 +113,12 @@ Event Viewer vs Wireshark
 understanding SIEM vs native logs
 
 
-## Milestone 2 — Host-Level Visibility
+## Milestone 2 — Host-Level Visibility ☘️
 
 
+<br>
 
-### Phase 3 — Endpoint Telemetry & Sysmon
+### Phase 3 — Endpoint Telemetry & Sysmon 
 
 - [ ] Day 5 — Sysmon Installation & Process Monitoring
 
@@ -259,7 +134,7 @@ process creation monitoring
 
 cmd.exe / powershell.exe logging
 
-
+<br>
 
 - [ ] Day 6 — Network Connections & PowerShell Visibility
 
@@ -275,7 +150,7 @@ command-line visibility
 
 parent-child process relationships
 
-
+<br>
 
 - [ ] Day 7 — File Creation & DNS Monitoring
 
@@ -295,6 +170,7 @@ suspicious activity observations
 ## Milestone 3 — Endpoint Monitoring Fundamentals
 
 
+<br>
 
 ### Phase 4 — SIEM & Centralized Monitoring
 
@@ -312,6 +188,7 @@ Splunk vs Wazuh overview
 
 log forwarding concepts
 
+<br>
 
 - [ ] Day 9 — Installing Splunk or Wazuh
 
@@ -325,7 +202,7 @@ connecting Windows logs
 
 verifying ingestion
 
-
+<br>
 
 - [ ] Day 10 — Sysmon Log Ingestion into SIEM
 
@@ -339,7 +216,7 @@ searching logs
 
 event visibility inside SIEM
 
-
+<br>
 
 - [ ] Day 11 — Basic Detection & Alert Monitoring
 
@@ -357,6 +234,7 @@ investigation workflow basics
 ## Milestone 4 — SOC-Style Monitoring Lab
 
 
+<br>
 
 ### Phase 5 — Incident Simulation & Investigation
 
@@ -372,7 +250,7 @@ SIEM correlation
 
 detection observations
 
-
+<br>
 
 - [ ] Day 13 — Suspicious SMB Activity Investigation
 
@@ -386,7 +264,7 @@ Wireshark analysis
 
 investigation workflow
 
-
+<br>
 
 - [ ] Day 14 — PowerShell Abuse Simulation
 
@@ -400,7 +278,7 @@ SIEM detection
 
 suspicious process analysis
 
-
+<br>
 
 - [ ] Day 15 — IOC Investigation & Log Correlation
 
@@ -418,6 +296,7 @@ investigation notes
 ## Milestone 5 — Basic Incident Investigation Capability
 
 
+<br>
 
 ### Phase 6 — Documentation & Portfolio Development
 
@@ -434,7 +313,7 @@ monitoring flow
 
 SIEM architecture visualization
 
-
+<br>
 
 - [ ] Day 17 — Detection Rules & Monitoring Summary
 
@@ -448,7 +327,7 @@ monitoring observations
 
 lessons learned
 
-
+<br>
 
 - [ ] Day 18 — Final Home Lab Portfolio Summary
 
@@ -462,6 +341,7 @@ Blue Team concepts learned
 
 future improvements
 
+<br>
 
 ### portfolio summary
 
