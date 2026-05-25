@@ -120,7 +120,7 @@ understanding SIEM vs native logs
 
 ### Phase 3 — Endpoint Telemetry & Sysmon 
 
-- [ ] Day 5 — Sysmon Installation & Process Monitoring
+✅ [Day 5 — Sysmon Installation & Process Monitoring](https://hkim0115.github.io/homelab/Day-5-Sysmon-Installation-&-Process-Monitoring/)
 
 Topics :
 
