@@ -166,7 +166,7 @@ Topics:
 
 ### Phase 1 — Foundations
 
-[x][Day 1 — VM Networking Fundamentals](https://hkim0115.github.io/homelab/Day-1-VM-Networking-Fundamentals/)
+- [x][Day 1 — VM Networking Fundamentals](https://hkim0115.github.io/homelab/Day-1-VM-Networking-Fundamentals/)
 
 Topics
 
@@ -182,7 +182,7 @@ connectivity testing
 
 
 
-[x] [Day 2 — Nmap Scanning and SMB Enumeration](https://hkim0115.github.io/homelab/Day-2-Nmap-and-SMB/)
+- [x] [Day 2 — Nmap Scanning and SMB Enumeration](https://hkim0115.github.io/homelab/Day-2-Nmap-and-SMB/)
 
 
 Topics :
@@ -199,7 +199,7 @@ Windows firewall behavior
 
 
 
-[x] [Day 3 — Wireshark Traffic Analysis and Nmap Reconnaissance](https://hkim0115.github.io/homelab/Day-3-Wireshark/)
+- [x] [Day 3 — Wireshark Traffic Analysis and Nmap Reconnaissance](https://hkim0115.github.io/homelab/Day-3-Wireshark/)
 
 Topics :
 
@@ -220,7 +220,7 @@ Windows Public vs Private profile effects
 
 ### Phase 2 — Windows Logging & Security Monitoring
 
-[x] [Day 4 — Event Viewer & Security Monitoring](https://hkim0115.github.io/homelab/Day-4-Event-Viewer-Monitoring/)
+- [x] [Day 4 — Event Viewer & Security Monitoring](https://hkim0115.github.io/homelab/Day-4-Event-Viewer-Monitoring/)
 
 Topics :
 
@@ -245,7 +245,7 @@ understanding SIEM vs native logs
 
 ### Phase 3 — Endpoint Telemetry & Sysmon
 
-[ ] Day 5 — Sysmon Installation & Process Monitoring
+- [ ] Day 5 — Sysmon Installation & Process Monitoring
 
 Topics :
 
@@ -261,7 +261,7 @@ cmd.exe / powershell.exe logging
 
 
 
-[ ] Day 6 — Network Connections & PowerShell Visibility
+- [ ] Day 6 — Network Connections & PowerShell Visibility
 
 Topics :
 
@@ -277,7 +277,7 @@ parent-child process relationships
 
 
 
-[ ] Day 7 — File Creation & DNS Monitoring
+- [ ] Day 7 — File Creation & DNS Monitoring
 
 Topics :
 
@@ -298,7 +298,7 @@ suspicious activity observations
 
 ### Phase 4 — SIEM & Centralized Monitoring
 
-[ ] Day 8 — SIEM Introduction & Architecture
+- [ ] Day 8 — SIEM Introduction & Architecture
 
 Topics :
 
@@ -313,7 +313,7 @@ Splunk vs Wazuh overview
 log forwarding concepts
 
 
-[ ] Day 9 — Installing Splunk or Wazuh
+- [ ] Day 9 — Installing Splunk or Wazuh
 
 Topics :
 
@@ -327,7 +327,7 @@ verifying ingestion
 
 
 
-[ ] Day 10 — Sysmon Log Ingestion into SIEM
+- [ ] Day 10 — Sysmon Log Ingestion into SIEM
 
 Topics :
 
@@ -341,7 +341,7 @@ event visibility inside SIEM
 
 
 
-[ ] Day 11 — Basic Detection & Alert Monitoring
+- [ ] Day 11 — Basic Detection & Alert Monitoring
 
 Topics :
 
@@ -360,7 +360,7 @@ investigation workflow basics
 
 ### Phase 5 — Incident Simulation & Investigation
 
-[ ] Day 12 — Brute-Force Authentication Simulation
+- [ ] Day 12 — Brute-Force Authentication Simulation
 
 Topics :
 
@@ -374,7 +374,7 @@ detection observations
 
 
 
-[ ] Day 13 — Suspicious SMB Activity Investigation
+- [ ] Day 13 — Suspicious SMB Activity Investigation
 
 Topics :
 
@@ -388,7 +388,7 @@ investigation workflow
 
 
 
-[ ] Day 14 — PowerShell Abuse Simulation
+- [ ] Day 14 — PowerShell Abuse Simulation
 
 Topics :
 
@@ -402,7 +402,7 @@ suspicious process analysis
 
 
 
-[ ] Day 15 — IOC Investigation & Log Correlation
+- [ ] Day 15 — IOC Investigation & Log Correlation
 
 Topics :
 
@@ -422,7 +422,7 @@ investigation notes
 ### Phase 6 — Documentation & Portfolio Development
 
 
-[ ] Day 16 — Network Diagram & Lab Architecture
+- [ ] Day 16 — Network Diagram & Lab Architecture
 
 Topics :
 
@@ -436,7 +436,7 @@ SIEM architecture visualization
 
 
 
-[ ] Day 17 — Detection Rules & Monitoring Summary
+- [ ] Day 17 — Detection Rules & Monitoring Summary
 
 Topics :
 
@@ -450,7 +450,7 @@ lessons learned
 
 
 
-[ ] Day 18 — Final Home Lab Portfolio Summary
+- [ ] Day 18 — Final Home Lab Portfolio Summary
 
 Topics :
 
