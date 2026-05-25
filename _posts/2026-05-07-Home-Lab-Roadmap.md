@@ -126,13 +126,15 @@ Topics :
 
 Sysmon installation
 
-SwiftOnSecurity config
+Event Viewer integration
 
 Event ID 1
 
 process creation monitoring
 
-cmd.exe / powershell.exe logging
+cmd.exe / powershell.exe / ping.exe logging
+
+command-line visibility basics
 
 <br>
 
@@ -140,15 +142,19 @@ cmd.exe / powershell.exe logging
 
 Topics :
 
-Sysmon Event ID 3
+SwiftOnSecurity Sysmon config
 
-PowerShell activity
+Sysmon Event ID 3
 
 network connection telemetry
 
-command-line visibility
+PowerShell activity
 
 parent-child process relationships
+
+improved logging visibility
+
+why Sysmon configuration matters
 
 <br>
 
