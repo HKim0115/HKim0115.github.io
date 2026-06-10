@@ -70,7 +70,8 @@ Ping was successful with 0% packet loss. Nmap reported all three ports as `filte
 
 In Event Viewer, Sysmon logged Event ID 3 entries for outbound connections from the Windows VM. One notable entry showed **OneDrive.exe** connecting to an external IP on port 443 (HTTPS) which is a normal background sync process, but a good example of how Sysmon captures all network activity regardless of source.
 
-A second Event ID 3 confirmed **powershell.exe** making an outbound connection to port 443 after running `Invoke-WebRequest` in the next step.
+A second Event ID 3 confirmed **powershell.exe** making an outbound connection to port 443 after running `Invoke-WebRequest -Uri "http://example.com"`
+
 
 ![image](/assets/7event3.png)
 
