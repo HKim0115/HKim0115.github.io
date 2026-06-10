@@ -139,7 +139,9 @@ The most interesting log of the day came from the encoded PowerShell execution c
 | ParentImage | `powershell.exe` |
 | ParentCommandLine | `powershell.exe -EncodedCommand dwBoAG8AYQBtAGkA` |
 
-This shows the full execution chain: an encoded PowerShell command spawning `whoami.exe`. From a detection perspective, this is exactly the kind of parent-child relationship that would trigger an alert in a real environment — a process launched by a PowerShell session that was itself running an encoded command.
+This shows the full execution chain: an encoded PowerShell command spawning `whoami.exe`. 
+
+From a detection perspective, this is exactly the kind of parent-child relationship that would trigger an alert in a real environment — a process launched by a PowerShell session that was itself running an encoded command.
 
 ---
 
