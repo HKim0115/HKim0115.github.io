@@ -151,7 +151,9 @@ From a detection perspective, this is exactly the kind of parent-child relations
 
 ![image](/assets/camera.png)
 
-During this session, the `svchost.exe -k CameraMonitor` entry briefly caught my attention — the name suggested something was accessing the camera. On closer inspection, it was a standard Windows service managed by `services.exe` running as SYSTEM, which is entirely normal behaviour. This was a useful reminder that process names alone can be misleading. A similar thing came up during an internship, where the same log prompted a second look before being cleared. Without prior exposure to what normal system logs look like, it is easy to either over-investigate routine events or, conversely, dismiss something genuinely suspicious because it looks unfamiliar. Building that baseline understanding of normal behaviour is what makes the difference in a real SOC environment.
+During this session, the `svchost.exe -k CameraMonitor` entry briefly caught my attention — the name suggested something was accessing the camera. On closer inspection, it was a standard Windows service managed by `services.exe` running as SYSTEM, which is entirely normal behaviour. 
+
+This was a useful reminder that process names alone can be misleading. A similar thing came up during an internship, where a similar log prompted a second look before being cleared. Without prior exposure to what normal system logs look like, it is easy to either over-investigate routine events or, conversely, dismiss something genuinely suspicious because it looks unfamiliar. Building that baseline understanding of normal behaviour is what makes the difference in a real SOC environment.
 
 **Encoded commands leave clear evidence.** Even though `-EncodedCommand` is designed to obscure the payload, Sysmon records the full command line including the Base64 string. The encoding itself becomes a detection indicator.
 
