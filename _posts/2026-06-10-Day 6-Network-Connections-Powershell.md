@@ -11,6 +11,15 @@ Today's focus was on applying the SwiftOnSecurity Sysmon configuration and obser
 
 ## Step 1 — Applying SwiftOnSecurity Sysmon Config
 
+To improve endpoint visibility, I applied the SwiftOnSecurity Sysmon configuration.
+
+This configuration enables additional telemetry such as:
+
+- Process Creation (Event ID 1)
+- Network Connections (Event ID 3)
+- File Creation (Event ID 11)
+- DNS Queries (Event ID 22)
+
 ![image](/assets/1swift_down.png)
 ![image](/assets/2swift_config.png)
 
