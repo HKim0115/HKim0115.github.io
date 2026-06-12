@@ -150,7 +150,7 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 ---
 
-#### Day 6 — Network Connections & PowerShell Visibility
+#### ✅ [Day 6 — Network Connections & PowerShell Visibility](https://hkim0115.github.io/homelab/Day-6-Network-Connections-Powershell/)
 
 **Topics:**
 
@@ -166,11 +166,10 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 | Observation | Tactic | Technique | ID |
 |---|---|---|---|
 | PowerShell execution detected | Execution | Command and Scripting Interpreter: PowerShell | T1059.001 |
-| Unexpected outbound connection | Command and Control | Application Layer Protocol | T1071 |
 
 ---
 
-#### Day 7 — File Creation & DNS Monitoring
+#### ✅ [Day 7 — File Creation & DNS Monitoring](https://hkim0115.github.io/homelab/Day-7-File-Creation-&-DNS-Monitoring/)
 
 **Topics:**
 
@@ -184,11 +183,12 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 | Observation | Tactic | Technique | ID |
 |---|---|---|---|
 | Suspicious file written to disk | Defense Evasion | Masquerading | T1036 |
+| Kali drops executable via SMB | Lateral Movement | SMB/Windows Admin Shares | T1021.002 |
 | Unusual DNS query observed | Command and Control | Application Layer Protocol | T1071 |
 
 ---
 
-> **Milestone 3 — Endpoint Monitoring Fundamentals**
+> **Milestone 3 — Endpoint Monitoring Fundamentals 🌿**
 > Completed: Process creation, network connections, file writes, and DNS queries are all visible via Sysmon.
 
 ---
