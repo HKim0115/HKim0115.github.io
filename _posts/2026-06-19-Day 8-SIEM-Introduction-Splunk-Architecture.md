@@ -5,7 +5,7 @@ categories: [HomeLab]
 
 ## What is a SIEM?
 
-A SIEM collects logs from multiple systems and stores them in one place. This makes it easier to monitor activity, investigate incidents, and retain logs even if an endpoint is compromised.
+A SIEM(Security Information and Event Management) collects logs from multiple systems and stores them in one place. This makes it easier to monitor activity, investigate incidents, and retain logs even if an endpoint is compromised.
 
 
 Up until now, I had been looking at logs directly through Event Viewer and Sysmon. It worked fine for a single machine, but I started wondering how logs would be handled in a real SOC environment where multiple systems generate events at the same time. That led me to SIEM platforms, and for this lab I decided to learn Splunk.
