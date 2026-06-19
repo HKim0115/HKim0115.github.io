@@ -1,7 +1,6 @@
 ---
 title: "Cybersecurity Homelab Roadmap"
 categories: [HomeLab]
-tags: [SOC, BlueTeam, Sysmon, Splunk, MITRE, Homelab]
 ---
 
 # Building My Cybersecurity Homelab Journey
@@ -197,7 +196,7 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 ---
 
-#### Day 8 — SIEM Introduction & Splunk Architecture
+#### ✅ [Day 8 — SIEM Introduction & Splunk Architecture](https://hkim0115.github.io/homelab/Day-8-SIEM-Introduction-Splunk-Architecture/)
 
 > **Tool decision: Splunk Free.**
 > Splunk is used here rather than Wazuh because it appears far more frequently in Sydney-based SOC analyst job postings, and hands-on Splunk experience is more directly applicable to entry-level roles.
