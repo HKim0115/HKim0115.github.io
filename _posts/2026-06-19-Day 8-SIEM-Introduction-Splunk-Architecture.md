@@ -37,13 +37,6 @@ sudo dpkg -i splunk-10.4.0-linux-amd64.deb
 
 ![image](/assets/images/HomeLab/day8/3splunkdown.png)
 
-One gotcha worth noting: Splunk now refuses to fully start when launched as `root` — it silently exits after a deprecation warning instead of erroring out clearly. The fix (and the better practice anyway) is running it under its own non-root account:
-
-```bash
-sudo chown -R splunk:splunk /opt/splunk
-/opt/splunk/bin/splunk start --accept-license   # no sudo
-sudo /opt/splunk/bin/splunk enable boot-start -user splunk
-```
 
 Once running, Splunk Web came up at `http://192.168.56.103:8000`:
 
