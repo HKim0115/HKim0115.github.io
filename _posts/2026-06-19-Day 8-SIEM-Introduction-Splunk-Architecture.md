@@ -3,7 +3,6 @@ title: "Day 8 — SIEM Introduction & Splunk Architecture"
 categories: [HomeLab]
 ---
 
-# Day 8 — SIEM Introduction & Splunk Architecture
 
 Up until now, I had been looking at logs directly through Event Viewer and Sysmon. It worked fine for a single machine, but I started wondering how logs would be handled in a real SOC environment where multiple systems generate events at the same time. That led me to SIEM platforms, and for this lab I decided to learn Splunk.
 
