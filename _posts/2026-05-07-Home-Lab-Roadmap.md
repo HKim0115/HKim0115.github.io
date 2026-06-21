@@ -199,54 +199,55 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 #### ✅ [Day 8 — SIEM Introduction & Splunk Architecture](https://hkim0115.github.io/homelab/Day-8-SIEM-Introduction-Splunk-Architecture/)
 
 > **Tool decision: Splunk Free.**
-> Splunk is used here rather than Wazuh because it appears far more frequently in Sydney-based SOC analyst job postings, and hands-on Splunk experience is more directly applicable to entry-level roles.
 
 **Topics:**
 
 - What a SIEM does and why centralised logging matters
 - Windows → Splunk log forwarding workflow
-- Splunk Free installation plan
-- Index and search basics
+- Splunk Enterprise (Trial license)
+- Indexes `wineventlog` and `sysmon` created; receiving port 9997 opened
 
 ---
 
-#### Day 9 — Installing Splunk & Connecting Windows Logs
+#### Day 9 — Universal Forwarder Deployment: Windows Event Log + Sysmon → Splunk
 
 **Topics:**
 
-- Splunk Free installation on Windows 11 VM
-- Basic configuration and index setup
-- Connecting Windows Event Logs to Splunk
-- Verifying log ingestion
+- Splunk Universal Forwarder installed on Windows 11 VM
+- Receiving indexer configured during install: 192.168.56.103:9997
+- `inputs.conf` configured — Security/System Event Log → `wineventlog` index
+- `inputs.conf` configured — Sysmon channel (`Microsoft-Windows-Sysmon/Operational`) → `sysmon` index
+- Forwarder service verified (`SplunkForwarder` running)
+- Ingestion verified via search on Ubuntu Splunk
+- Troubleshooting notes: firewall/port 9997, `outputs.conf`, `splunkd.log`
+
+---
+
+#### Day 10 — SPL Fundamentals & Search Verification
+
+**Topics:**
+
+- Basic SPL syntax: `index=`, `sourcetype=`, `stats`, `table`, `timechart`
+- Searching specific Event IDs (4624, 4625, Sysmon EID 1/3/11/22) across both indexes
+- Building a multi-index search to confirm forwarder health end-to-end
 - Splunk dashboard screenshot added to portfolio
 
 ---
 
-#### Day 10 — Sysmon Log Ingestion into Splunk
-
-**Topics:**
-
-- Forwarding Sysmon logs into Splunk
-- Index structure for endpoint telemetry
-- Basic SPL (Search Processing Language) queries
-- Searching for specific Event IDs inside Splunk
-
----
-
-#### Day 11 — Basic Detection & Alert Creation
+#### Day 11 — Basic Detection, Alert Creation & Triage
 
 **Topics:**
 
 - Failed login detection alert — Event ID 4625
 - Suspicious PowerShell detection rule
 - Simple alert creation workflow
+- **Alert triage decision** — when the alert fires, document whether it's a true or false positive and why
 - Investigation workflow basics
 - Splunk dashboard screenshot added to portfolio
 
 ---
 
 > **Milestone 4 — SOC-Style Monitoring Lab**
-> Completed: Sysmon telemetry and Windows logs are centralised in Splunk. Basic detections are live.
 
 ---
 
@@ -327,24 +328,25 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 Kali Linux (attacker)
   └─ Brute-force login attempts       → Event ID 4625 (multiple failures)
       └─ Successful authentication    → Event ID 4624
-          └─ SMB lateral movement     → Sysmon Event ID 3 (network connection)
+          └─ SMB lateral movement     → Sysmon Event ID 3 (network connection, T1021.002)
               └─ PowerShell execution → Sysmon Event ID 1 (process creation)
-                  └─ Splunk detects the full chain
-                      └─ Investigation report written
+                  └─ (Optional) outbound C2-style connection → Sysmon Event ID 3 (T1071)
+                      └─ Splunk detects the full chain
+                          └─ Investigation report written
 ```
 
 **Topics:**
 
 - Full attack Kill Chain reproduced in the lab
 - End-to-end event tracking in Splunk using SPL
-- MITRE ATT&CK tactic mapping across the chain:
-  - Initial Access → Credential Access → Execution → Lateral Movement
-- Investigation report written and published as a blog post
+- MITRE ATT&CK tactic mapping across the chain — Initial Access → Credential Access → Execution → Lateral Movement → (Command and Control, if simulated)
+- **Investigation report written in standard IR format:** Timeline / Affected Assets / MITRE ATT&CK Mapping / Containment Action / Lessons Learned
+- Published as a blog post
 
 ---
 
 > **Milestone 5 — Basic Incident Investigation Capability**
-> Completed: A realistic multi-stage attack has been simulated, detected, and documented end-to-end.
+> Completed: A realistic multi-stage attack has been simulated, detected, and documented end-to-end in a standard incident report format.
 
 ---
 
@@ -356,7 +358,7 @@ Kali Linux (attacker)
 
 **Topics:**
 
-- Final version of the network diagram updated from Day 0 draft
+- Final network diagram reflecting the actual architecture: dedicated Ubuntu Splunk indexer + Universal Forwarder on Windows 11
 - VM relationships and monitoring flow finalised
 - Splunk architecture added to the diagram
 - Portfolio front page updated
@@ -369,6 +371,7 @@ Kali Linux (attacker)
 
 - Detection examples with SPL queries
 - Alert workflow summary
+- **False positive tuning** — note on any alert adjusted after being too sensitive, and why
 - Full MITRE ATT&CK mapping table (all techniques observed across the lab)
 - Lessons learned
 
@@ -383,7 +386,6 @@ Kali Linux (attacker)
 - Blue Team concepts and skills demonstrated
 - GitHub blog final review and clean-up
 - Future improvements noted
-
 
 ---
 
