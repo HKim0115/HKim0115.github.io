@@ -102,6 +102,22 @@ Fix: match the search time range to the cron interval (Last 6 minutes for a 5-mi
 
 ---
 
+## Alert Triage
+
+Both alerts triggered today were the result of tests I ran myself, not an actual external attacker. That context matters for how each is classified.
+
+**Failed Login Brute Force Detection**
+
+ — True positive. The pattern (6 failed logins for the same account within a 5-minute window) is identical to what a real brute-force attempt would produce. The alert correctly detected the behavior; the only difference from a real incident is the known, authorized source.
+
+**Encoded PowerShell Execution Detection**
+
+ — True positive. Running `powershell.exe -EncodedCommand ...` is exactly the kind of execution pattern the alert is designed to catch, regardless of intent. The alert doesn't (and shouldn't) try to judge intent on its own; that's the analyst's job during investigation, not the detection's job.
+
+In both cases, "triggered correctly on a test" and "would trigger correctly on a real attack" are the same outcome from the alert's perspective. The judgment call belongs to triage, not to the alert logic itself.
+
+---
+
 ## Self Q&A
 
 **Q: Your brute-force alert triggers on 5+ failures in 5 minutes for one account. What's a realistic way an attacker bypasses this exact logic, and how would you adjust for it?**

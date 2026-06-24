@@ -105,7 +105,7 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 ---
 
-> **Milestone 1 — Basic Network Visibility 🌱**
+> **Milestone 1 — Basic Network Visibility**
 > Completed: VM environment running, network traffic visible and analysable.
 
 ---
@@ -128,7 +128,7 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 ---
 
-> **Milestone 2 — Host-Level Visibility ☘️**
+> **Milestone 2 — Host-Level Visibility**
 > Completed: Windows authentication events are visible and interpretable without third-party tools.
 
 ---
@@ -187,7 +187,7 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 ---
 
-> **Milestone 3 — Endpoint Monitoring Fundamentals 🌿**
+> **Milestone 3 — Endpoint Monitoring Fundamentals**
 > Completed: Process creation, network connections, file writes, and DNS queries are all visible via Sysmon.
 
 ---
@@ -209,7 +209,7 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 ---
 
-#### Day 9 — Universal Forwarder Deployment: Windows Event Log + Sysmon → Splunk
+#### ✅ [Day 9 — Universal Forwarder Deployment: Windows Event Log + Sysmon → Splunk](https://hkim0115.github.io/homelab/Day-9-Universal-Forwarder-Deployment/)
 
 **Topics:**
 
@@ -223,7 +223,7 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 ---
 
-#### Day 10 — SPL Fundamentals & Search Verification
+#### ✅ [Day 10 — SPL Fundamentals & Search Verification](https://hkim0115.github.io/homelab/Day-10-SPL-Fundamentals/)
 
 **Topics:**
 
@@ -234,7 +234,7 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 ---
 
-#### Day 11 — Basic Detection, Alert Creation & Triage
+#### ✅ [Day 11 — Basic Detection, Alert Creation & Triage](https://hkim0115.github.io/homelab/Day-11-Basic-Detection-alert-creation-triage/)
 
 **Topics:**
 

@@ -94,11 +94,14 @@ The interesting cluster: five 4625s within about 17 seconds, followed by a 4624.
 ## Self Q&A
  
 **Q: 252 EventCode=4624 events came back, more than expected. Just looking at that raw number, is that something to worry about? What would actually tell you whether it's normal or not?**
+
 Not by itself. What matters is the baseline: how many logon events this host normally generates per day, across that same mix of service and interactive logons. A spike well above that baseline is worth investigating, the raw count in isolation isn't.
  
 **Q: You filtered on Account_Name to separate real logins from system noise like DWM and UMFD. If an attacker logged in using that exact same account name, would Account_Name alone be enough to call it a legitimate login?**
+
 No. A correct account name only proves the authentication succeeded with valid credentials, not that the legitimate user is the one who typed them. Credentials can be phished, reused from a breach, or brute-forced, so account name narrows things down but has to be cross-checked with other context, like source IP, login time relative to normal working hours, and location, before calling it legitimate.
  
 **Q: You called the five-failures-then-success pattern a small-scale version of brute-force. What actually separates that from a real user just fumbling their password a few times?**
+
 Volume and speed. Five failures in 17 seconds is already faster than someone could physically type and second-guess a password, and an automated brute-force tool would push both numbers much further. A real detection rule for this isn't based on a raw failure count alone, it's a threshold paired with a time window, e.g. more than N failures within X minutes, since that's what separates automated attempts from normal human error.
  
