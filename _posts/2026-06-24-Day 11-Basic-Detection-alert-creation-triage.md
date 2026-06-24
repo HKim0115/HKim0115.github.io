@@ -95,6 +95,7 @@ powershell.exe -EncodedCommand ([Convert]::ToBase64String([System.Text.Encoding]
 ## What went wrong, and why it matters
 
 **Alert 1 fired three times for one event.**
+
 Time range was set to "Last 15 minutes" while the cron ran every 5 minutes. Each run re-evaluated the same 15-minute window, so one brute-force burst got caught and re-alerted on for three consecutive cron cycles.
 
 Fix: match the search time range to the cron interval (Last 6 minutes for a 5-minute cron, with 1 minute of buffer for indexing lag), and add throttling as a second layer of protection against duplicate alerts on the same account.
@@ -104,11 +105,14 @@ Fix: match the search time range to the cron interval (Last 6 minutes for a 5-mi
 ## Self Q&A
 
 **Q: Your brute-force alert triggers on 5+ failures in 5 minutes for one account. What's a realistic way an attacker bypasses this exact logic, and how would you adjust for it?**
+
 Low-and-slow brute-forcing, spacing attempts further apart than the detection window, or rotating across many accounts at a low per-account rate (password spraying) so no single account crosses the threshold. Addressing it means also tracking failure counts aggregated by source IP or workstation, not just by target account.
 
 **Q: If this alert fires at 3am with no other context, what's your first move before escalating?**
+
 Pull the account's recent login history and check whether this matches a known pattern (e.g. a forgotten password, locked-out service account) versus something with no innocent explanation. Check source IP/workstation against expected values. The decision isn't "is this suspicious" in isolation, it's "does this deviate from what's normal for this specific account."
 
 **Q: Why flag encoded PowerShell at all? Plenty of legitimate admin scripts use -EncodedCommand.**
+
 It's true, base64 encoding alone isn't malicious. The value of the alert is as a flag for investigation, not a verdict. What matters next is the decoded content, the parent process, and whether this matches known admin tooling for the environment. Treating "fired" and "confirmed malicious" as the same thing is exactly how alert fatigue starts.
 
