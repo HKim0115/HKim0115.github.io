@@ -115,8 +115,11 @@ Yes. I expected Logon_Type 10 for an RDP attack, so seeing 3 was unexpected. If 
 # Incident Report
  
 **Incident ID:** HOMELAB-2026-0625
+
 **Severity:** Medium
+
 **Status:** Closed
+
 **Analyst:** Hanul Kim
  
 **Summary**
