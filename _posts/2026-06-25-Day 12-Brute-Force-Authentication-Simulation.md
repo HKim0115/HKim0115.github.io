@@ -93,7 +93,7 @@ Since the environment only has one account, password spraying (T1110.003), sprea
 
 ---
 
-## Anticipated Interview Questions
+## Q&A
 
 **Q. Why wasn't the alert built in a complete form from the start?**
 

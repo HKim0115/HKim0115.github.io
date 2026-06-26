@@ -272,147 +272,151 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 ---
 
-#### Day 13 — Suspicious SMB Activity Investigation
-
+#### Day 13 — Active Directory Deployment & Domain Integration
+ 
 **Topics:**
-
-- Abnormal SMB access simulation
+ 
+- Windows Server VM provisioned — fourth VM added to the lab
+- Active Directory Domain Services (AD DS) role installed, domain created
+- Windows 11 VM joined to the domain
+- Splunk Universal Forwarder installed on the Domain Controller, Security log forwarding configured
+- New log sources introduced — Kerberos authentication events (Event ID 4768, 4769, 4776)
+- Why this step matters: without a second internal host, true lateral movement (T1021.002) cannot be demonstrated — only a single external-to-target hop
+---
+ 
+#### Day 14 — Suspicious SMB Activity Investigation
+ 
+**Topics:**
+ 
+- Abnormal SMB access simulation using domain accounts
 - SMB log analysis in Event Viewer and Splunk
 - Wireshark packet capture alongside log review
 - Investigation workflow documentation
-
+- Scope note: this investigates SMB access/discovery from a single host, not a multi-hop movement — the full lateral movement chain is reserved for Day 16-B
 **MITRE ATT&CK mapping:**
-
+ 
 | Observation | Tactic | Technique | ID |
 |---|---|---|---|
 | SMB enumeration observed | Discovery | Network Share Discovery | T1135 |
-| Lateral movement via SMB | Lateral Movement | SMB/Windows Admin Shares | T1021.002 |
-
+ 
 ---
-
-#### Day 14 — PowerShell Abuse Simulation
-
+ 
+#### Day 15 — PowerShell Abuse Simulation
+ 
 **Topics:**
-
+ 
 - Encoded PowerShell command execution from Kali
 - Sysmon Event ID 1 and 3 telemetry analysis
 - Splunk detection of encoded commands
 - Suspicious parent-child process analysis
-
 **MITRE ATT&CK mapping:**
-
+ 
 | Observation | Tactic | Technique | ID |
 |---|---|---|---|
 | Encoded PowerShell executed | Execution | Command and Scripting Interpreter: PowerShell | T1059.001 |
-
+ 
 ---
-
-#### Day 15 — IOC Investigation & Log Correlation
-
+ 
+#### Day 16 — IOC Investigation & Log Correlation
+ 
 **Topics:**
-
+ 
 - Indicators of Compromise (IOC) identification
 - Cross-source log correlation — endpoint and network
 - MITRE ATT&CK mapping table for all simulations
 - Investigation notes written in structured format
-
 ---
-
-#### Day 15-B — End-to-End Attack Scenario Investigation ⭐
-
+ 
+#### Day 16-B — End-to-End Attack Scenario Investigation ⭐
+ 
 > This is the centrepiece of the portfolio. All individual simulations are connected into a single investigation that mirrors a real SOC workflow.
-
+ 
 **Scenario flow:**
-
+ 
 ```
 Kali Linux (attacker)
-  └─ Brute-force login attempts       → Event ID 4625 (multiple failures)
-      └─ Successful authentication    → Event ID 4624
-          └─ SMB lateral movement     → Sysmon Event ID 3 (network connection, T1021.002)
-              └─ PowerShell execution → Sysmon Event ID 1 (process creation)
+  └─ Brute-force login attempts (Win11)        → Event ID 4625 (multiple failures)
+      └─ Successful authentication (Win11)     → Event ID 4624 (Initial Access / Credential Access)
+          └─ Lateral movement: Win11 → DC      → PsExec / Impacket psexec.py
+                                                   Sysmon EID 1 (process creation), EID 3 (network connection)
+                                                   Security 4624 (Logon_Type=3), Service creation 7045
+                                                   Kerberos 4768 / 4769 / 4776 on the DC
+                                                   (T1021.002 — true lateral movement, second hop)
+              └─ PowerShell execution on DC     → Sysmon Event ID 1
                   └─ (Optional) outbound C2-style connection → Sysmon Event ID 3 (T1071)
                       └─ Splunk detects the full chain
                           └─ Investigation report written
 ```
-
+ 
 **Topics:**
-
-- Full attack Kill Chain reproduced in the lab
+ 
+- Full attack Kill Chain reproduced in the lab, now spanning two internal hosts (Win11 and the Domain Controller)
+- Why Kali → Win11 is Initial Access / Credential Access, and Win11 → DC is the actual Lateral Movement step — the distinction depends on whether the hop starts from an already-compromised internal host
 - End-to-end event tracking in Splunk using SPL
-- MITRE ATT&CK tactic mapping across the chain — Initial Access → Credential Access → Execution → Lateral Movement → (Command and Control, if simulated)
+- MITRE ATT&CK tactic mapping across the chain — Initial Access → Credential Access → Lateral Movement → Execution → (Command and Control, if simulated)
+- AV/Defender handling decision documented (disabled with rationale, or a lower-signature method used) — if a step is blocked, the block itself is treated as valid detection content rather than a failure
 - **Investigation report written in standard IR format:** Timeline / Affected Assets / MITRE ATT&CK Mapping / Containment Action / Lessons Learned
 - Published as a blog post
-
 ---
-
+ 
 > **Milestone 5 — Basic Incident Investigation Capability**
-> Completed: A realistic multi-stage attack has been simulated, detected, and documented end-to-end in a standard incident report format.
-
+> Completed: A realistic multi-stage, multi-host attack has been simulated, detected, and documented end-to-end in a standard incident report format.
+ 
 ---
-
+ 
 ### Phase 6 — Documentation & Portfolio Development
-
+ 
 ---
-
-#### Day 16 — Network Diagram & Lab Architecture (Final)
-
-**Topics:**
-
-- Final network diagram reflecting the actual architecture: dedicated Ubuntu Splunk indexer + Universal Forwarder on Windows 11
-- VM relationships and monitoring flow finalised
-- Splunk architecture added to the diagram
-- Portfolio front page updated
-
----
-
+ 
 #### Day 17 — Detection Rules & Monitoring Summary
-
+ 
 **Topics:**
-
+ 
 - Detection examples with SPL queries
 - Alert workflow summary
+- Kerberos authentication detection (4768 / 4769 / 4776) added to the detection set
 - **False positive tuning** — note on any alert adjusted after being too sensitive, and why
 - Full MITRE ATT&CK mapping table (all techniques observed across the lab)
 - Lessons learned
-
 ---
-
+ 
 #### Day 18 — Final Portfolio Summary
-
+ 
 **Topics:**
-
+ 
 - Full project reflection
 - Technical growth documented
 - Blue Team concepts and skills demonstrated
 - GitHub blog final review and clean-up
 - Future improvements noted
-
 ---
-
+ 
 ## MITRE ATT&CK Mapping Summary
-
+ 
 > This table consolidates all techniques observed across the lab. It demonstrates the ability to connect raw log observations to a recognised threat framework — a core SOC analyst skill.
-
+ 
 | Lab exercise | Tactic | Technique | ID |
 |---|---|---|---|
 | Nmap port scanning | Reconnaissance | Active Scanning | T1595 |
 | SMB enumeration | Discovery | Network Share Discovery | T1135 |
-| Brute-force login simulation | Credential Access | Brute Force | T1110 |
+| Brute-force login simulation | Credential Access | Brute Force | T1110.001 |
 | PowerShell execution monitoring | Execution | Command and Scripting Interpreter: PowerShell | T1059.001 |
-| SMB lateral movement | Lateral Movement | SMB/Windows Admin Shares | T1021.002 |
+| Lateral movement, Win11 → DC via PsExec | Lateral Movement | SMB/Windows Admin Shares | T1021.002 |
 | DNS query monitoring (Sysmon ID 22) | Command and Control | Application Layer Protocol | T1071 |
 | Suspicious file creation (Sysmon ID 11) | Defense Evasion | Masquerading | T1036 |
-
+ 
 ---
-
+ 
 ## Portfolio Summary
-
+ 
 **Practical skills demonstrated:**
-
+ 
 - Network visibility — Nmap, Wireshark
 - Windows authentication logging — Event Viewer, Event ID 4624 / 4625
 - Endpoint telemetry — Sysmon Event ID 1, 3, 11, 22
+- Active Directory deployment and domain-based authentication — Kerberos Event ID 4768 / 4769 / 4776
 - SIEM monitoring — Splunk (detection, alerting, dashboard)
-- Incident investigation — end-to-end attack scenario
+- Incident investigation — end-to-end, multi-host attack scenario
 - Threat framework mapping — MITRE ATT&CK
 - Technical documentation — GitHub blog with structured investigation notes
+ 
