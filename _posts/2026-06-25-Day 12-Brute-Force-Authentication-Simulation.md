@@ -1,5 +1,5 @@
 ---
-title: "Day 12: Brute Force Authentication Simulation"
+title: "Day 12: Brute Force Authentication Simulation + Incident Report"
 categories: [HomeLab]
 ---
 
@@ -109,3 +109,61 @@ Yes. I expected Logon_Type 10 for an RDP attack, so seeing 3 was unexpected. If 
 
 - The initial alert query was missing `Source_Network_Address`, which made investigation impossible. Group-by fields need to account for what's needed during investigation, not just whether the alert fires.
 - I didn't know in advance that an RDP attack gets logged as Logon_Type 3 instead of 10. Filtering on Logon_Type alone is risky; the EventCode + Account_Name combination is more reliable.
+
+---
+
+# Incident Report
+ 
+**Incident ID:** HOMELAB-2026-0625
+**Severity:** Medium
+**Status:** Closed
+**Analyst:** Hanul Kim
+ 
+**Summary**
+Repeated RDP authentication failures against a single local account, followed by a successful login, were detected by a scheduled Splunk alert. Investigation confirmed a brute force attack originating from a known host on the internal network. The source IP was blocked at the host firewall and the passwords has been changed. No further attacker activity was observed.
+ 
+**Timeline**
+ 
+| Time (AEST) | Event |
+|---|---|
+| 00:17:19.322 | First failed login (4625), Logon_Type 3 |
+| 00:17:19.322 - 00:17:21.431 | 8 failed logins total, ~2 seconds apart |
+| 00:17:23.451 | Successful login (4624), same account, same source IP |
+| 00:20:02 | Tuned alert fires with Source_Network_Address included |
+| Same session | Investigation query confirms attacker workstation as `kali` |
+| Following | Inbound firewall rule created to block 192.168.56.101 |
+| Following | Block verified via ping (100% packet loss) |
+ 
+**Affected Assets**
+- Host: Windows 11 VM (192.168.56.5)
+- Account: `kim's windows` (local account)
+
+**Indicators of Compromise**
+- Source IP: 192.168.56.101
+- Failure_Reason: "Unknown user name or bad password"
+- Logon_Type 3 (Network) instead of the expected 10 (RemoteInteractive) for RDP
+
+**MITRE ATT&CK Mapping**
+- T1110.001, Brute Force: Password Guessing (Credential Access)
+
+**Containment Action**
+Created an inbound firewall rule blocking 192.168.56.101 on the target host.
+ 
+```powershell
+New-NetFirewallRule -DisplayName "Block Kali Attacker" -Direction Inbound -RemoteAddress 192.168.56.101 -Action Block
+```
+ 
+![Inbound rule enabled, action Block](/assets/images/HomeLab/day12/12firewall.png)
+![Inbound rule enabled, action Block](/assets/images/HomeLab/day12/13firewall.png)
+![Inbound rule enabled, action Block](/assets/images/HomeLab/day12/14newrule.png)
+
+Verified from Kali that the host became unreachable.
+ 
+```bash
+ping 192.168.56.5
+```
+ 
+![142 packets sent, 0 received, 100% packet loss](/assets/images/HomeLab/day12/15ping.png)
+ 
+Splunk itself has no enforcement capability, it is a detection layer; this kind of blocking action would normally sit with an EDR/XDR agent or be automated through a SOAR playbook. Here it was done manually at the endpoint.
+ 
