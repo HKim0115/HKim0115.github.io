@@ -15,6 +15,7 @@ The long-term goal is to build a small lab environment where I can practice:
 
 - Network analysis and traffic monitoring
 - Windows and Linux administration
+- Active Directory and domain-based authentication
 - Log analysis with a SIEM (Splunk)
 - Basic incident response workflows
 - Security monitoring and detection concepts
@@ -31,6 +32,8 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 - Detecting encoded PowerShell execution → `T1059.001 (Command and Scripting Interpreter: PowerShell)`
 - Observing repeated failed logins → `T1110 (Brute Force)`
 - Capturing SMB enumeration traffic → `T1135 (Network Share Discovery)`
+- Reusing compromised credentials to move from one internal host to another → `T1021.002 (SMB/Windows Admin Shares)`
+
 
 ---
 
@@ -43,6 +46,9 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 | Wireshark | 15 May 2026 |
 | Windows Event Viewer | 18 May 2026 |
 | Sysmon | 25 May 2026 |
+| Splunk Enterprise (Ubuntu indexer) + Universal Forwarder | |
+| Windows Server VM — Active Directory Domain Services (AD DS), Domain Controller | |
+
 
 ---
 
@@ -56,8 +62,10 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 - Kali Linux VM — attacker / red team perspective
 - Windows 11 VM — target + defender / blue team perspective
+- Windows Server VM — Active Directory Domain Controller
+- Ubuntu Server VM — Splunk indexer
 - Network type: Host-Only  — isolated from the internet
-- Monitoring flow: `Sysmon → Event Viewer → Splunk → Alert`
+- Monitoring flow: `Sysmon / Windows Event Log → Universal Forwarder → Splunk → Alert`
 
 ---
 
@@ -255,11 +263,11 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 ---
 
-#### Day 12 — Brute-Force Authentication Simulation
+#### ✅ [Day 12 — Brute-Force Authentication Simulation](https://hkim0115.github.io/homelab/Day-12-Brute-Force-Authentication-Simulation/)
 
 **Topics:**
 
-- Repeated failed login simulation from Kali
+- Repeated failed login simulation from Kali (Hydra → RDP, port 3389)
 - Event ID 4625 analysis in Splunk
 - Splunk correlation across multiple events
 - Detection observations and investigation notes
@@ -268,36 +276,32 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 
 | Observation | Tactic | Technique | ID |
 |---|---|---|---|
-| Repeated failed logins | Credential Access | Brute Force | T1110 |
+| Repeated failed logins | Credential Access | Brute Force | T1110.001 |
 
 ---
 
-#### Day 13 — Active Directory Deployment & Domain Integration
+#### ✅ [Day 13 — Active Directory Deployment & Domain Integration](https://hkim0115.github.io/homelab/Day-13-Active-Directory-Deployment/)
  
 **Topics:**
  
 - Windows Server VM provisioned — fourth VM added to the lab
-- Active Directory Domain Services (AD DS) role installed, domain created
+- Active Directory Domain Services (AD DS) role installed, domain created (`homelab.local`)
 - Windows 11 VM joined to the domain
 - Splunk Universal Forwarder installed on the Domain Controller, Security log forwarding configured
 - New log sources introduced — Kerberos authentication events (Event ID 4768, 4769, 4776)
 - Why this step matters: without a second internal host, true lateral movement (T1021.002) cannot be demonstrated — only a single external-to-target hop
 ---
  
-#### Day 14 — Suspicious SMB Activity Investigation
+#### Day 14 — Privileged Group Membership & Account Lockout Investigation
  
 **Topics:**
  
-- Abnormal SMB access simulation using domain accounts
-- SMB log analysis in Event Viewer and Splunk
-- Wireshark packet capture alongside log review
-- Investigation workflow documentation
-- Scope note: this investigates SMB access/discovery from a single host, not a multi-hop movement — the full lateral movement chain is reserved for Day 16-B
-**MITRE ATT&CK mapping:**
- 
-| Observation | Tactic | Technique | ID |
-|---|---|---|---|
-| SMB enumeration observed | Discovery | Network Share Discovery | T1135 |
+- Simulating normal AD administrative actions: creating a user, resetting a password, enabling/disabling an account, adding/removing a user from Domain Admins
+- For each action, tracking which Event ID is generated, whether it appears on Win11, on the DC, or both, and how it shows up in Splunk
+- Building a reference table of common AD administrative/security Event IDs (4720 user created, 4724 password reset, 4728 user added to a global security group such as Domain Admins, 4729 user removed from a group, 4740 account locked out, 4722 account enabled, 4725 account disabled)
+- **Account Lockout Investigation**: testing the domain's account lockout policy directly — repeated bad password attempts against a domain account, observing Event ID 4740 firing and contrasting this with Day 12, where the local-account brute force had no lockout policy in place at all
+- Identifying which account performed a privilege change (the "Subject" in Event ID 4728) and discussing what would make that change suspicious versus authorized, as a SOC analyst would when investigating it
+This day replaces the previously planned SMB investigation, which overlapped too heavily with SMB content already covered in Days 2, 4, and 7. Privileged group membership and account lockout activity are far more representative of day-to-day SOC investigation work, and don't overlap with the lateral movement scenario in Day 16.
  
 ---
  
@@ -317,17 +321,7 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
  
 ---
  
-#### Day 16 — IOC Investigation & Log Correlation
- 
-**Topics:**
- 
-- Indicators of Compromise (IOC) identification
-- Cross-source log correlation — endpoint and network
-- MITRE ATT&CK mapping table for all simulations
-- Investigation notes written in structured format
----
- 
-#### Day 16-B — End-to-End Attack Scenario Investigation ⭐
+#### Day 16 — End-to-End Attack Scenario Investigation ⭐
  
 > This is the centrepiece of the portfolio. All individual simulations are connected into a single investigation that mirrors a real SOC workflow.
  
@@ -353,10 +347,13 @@ Kali Linux (attacker)
 - Full attack Kill Chain reproduced in the lab, now spanning two internal hosts (Win11 and the Domain Controller)
 - Why Kali → Win11 is Initial Access / Credential Access, and Win11 → DC is the actual Lateral Movement step — the distinction depends on whether the hop starts from an already-compromised internal host
 - End-to-end event tracking in Splunk using SPL
+- **IOC summary table** consolidating indicators across every stage of the chain — failed/successful logon timestamps, source IPs, account names, process names, service names, and Kerberos ticket events — cross-referenced against endpoint and network log sources
 - MITRE ATT&CK tactic mapping across the chain — Initial Access → Credential Access → Lateral Movement → Execution → (Command and Control, if simulated)
 - AV/Defender handling decision documented (disabled with rationale, or a lower-signature method used) — if a step is blocked, the block itself is treated as valid detection content rather than a failure
 - **Investigation report written in standard IR format:** Timeline / Affected Assets / MITRE ATT&CK Mapping / Containment Action / Lessons Learned
 - Published as a blog post
+This day merges what was previously planned as two separate days (a standalone IOC correlation day, plus the end-to-end scenario), since the IOC correlation work is naturally part of investigating the full chain and didn't justify a separate post on its own.
+ 
 ---
  
 > **Milestone 5 — Basic Incident Investigation Capability**
@@ -400,6 +397,7 @@ Kali Linux (attacker)
 | Nmap port scanning | Reconnaissance | Active Scanning | T1595 |
 | SMB enumeration | Discovery | Network Share Discovery | T1135 |
 | Brute-force login simulation | Credential Access | Brute Force | T1110.001 |
+| Privileged group membership change (Domain Admins) | Persistence | Account Manipulation | T1098 |
 | PowerShell execution monitoring | Execution | Command and Scripting Interpreter: PowerShell | T1059.001 |
 | Lateral movement, Win11 → DC via PsExec | Lateral Movement | SMB/Windows Admin Shares | T1021.002 |
 | DNS query monitoring (Sysmon ID 22) | Command and Control | Application Layer Protocol | T1071 |
@@ -419,4 +417,3 @@ Kali Linux (attacker)
 - Incident investigation — end-to-end, multi-host attack scenario
 - Threat framework mapping — MITRE ATT&CK
 - Technical documentation — GitHub blog with structured investigation notes
- 
