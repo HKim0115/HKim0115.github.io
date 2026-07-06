@@ -292,7 +292,7 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 - Why this step matters: without a second internal host, true lateral movement (T1021.002) cannot be demonstrated — only a single external-to-target hop
 ---
  
-#### Day 14 — Privileged Group Membership & Account Lockout Investigation
+#### ✅ [Day 14 — Privileged Group Membership & Account Lockout Investigation](https://hkim0115.github.io/homelab/Day-14-Privileged-Group-Account-Lockout/)
  
 **Topics:**
  

@@ -2,7 +2,7 @@
 main:
   - title: "Home"
     url: /
-  - title: "HomeLap"
+  - title: "HomeLab"
     url: /categories/#homelab
   - title: "Category"
     url: /categories/
