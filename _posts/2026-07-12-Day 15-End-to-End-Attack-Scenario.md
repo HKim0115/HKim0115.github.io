@@ -253,12 +253,15 @@ Detected via the brute-force alert built in Day 11, monitoring for repeated Even
 ## Self Q&A
 
 **Q: Why did you disable the account instead of just removing it from Domain Admins?**
+
 Disabling cuts off all access immediately, including the RDP session that started the whole chain. Removing group membership alone would still leave the account usable, and the attacker could try to re-escalate using the same GenericAll ACE.
 
 **Q: Why does the GenericAll ACE matter more than the group membership itself?**
+
 Because it's the root cause. Removing `elkin` from Domain Admins fixes the symptom. The ACE is what let the account get there in the first place, and it would let any future account holder do the same thing again if left in place.
 
 **Q: How would you have caught the privilege escalation step specifically, not just the brute force?**
+
 The 4728 event where Subject and Member are the same account is a strong, low-noise signal. Legitimate admin actions almost never have that pattern, since an account doesn't normally add itself to a group it's not already in.
 
 
