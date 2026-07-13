@@ -16,9 +16,10 @@ The long-term goal is to build a small lab environment where I can practice:
 - Network analysis and traffic monitoring
 - Windows and Linux administration
 - Active Directory and domain-based authentication
-- Log analysis with a SIEM (Splunk)
-- Basic incident response workflows
+- Log analysis and detection engineering with a SIEM (Splunk)
+- End-to-end incident response and investigation workflows
 - Security monitoring and detection concepts
+- Adversary simulation from an attacker's perspective
 - MITRE ATT&CK framework mapping
 
 ---
@@ -27,12 +28,7 @@ The long-term goal is to build a small lab environment where I can practice:
 
 MITRE ATT&CK is a publicly available knowledge base that catalogues the tactics and techniques used by real-world attackers. In a SOC role, analysts use it to describe and classify suspicious activity, not to perform attacks.
 
-In this lab, I use ATT&CK to map what I observe during simulations to a recognised framework. For example:
-
-- Detecting encoded PowerShell execution → `T1059.001 (Command and Scripting Interpreter: PowerShell)`
-- Observing repeated failed logins → `T1110 (Brute Force)`
-- Capturing SMB enumeration traffic → `T1135 (Network Share Discovery)`
-- Reusing compromised credentials to move from one internal host to another → `T1021.002 (SMB/Windows Admin Shares)`
+In this lab, I use ATT&CK to map what I observe during simulations to a recognised framework. 
 
 
 ---
@@ -46,17 +42,16 @@ In this lab, I use ATT&CK to map what I observe during simulations to a recognis
 | Wireshark | 15 May 2026 |
 | Windows Event Viewer | 18 May 2026 |
 | Sysmon | 25 May 2026 |
-| Splunk Enterprise (Ubuntu indexer) + Universal Forwarder | |
-| Windows Server VM — Active Directory Domain Services (AD DS), Domain Controller | |
-
+| Splunk Enterprise (Ubuntu indexer) + Universal Forwarder | 19 June 2026 |
+| Hydra | 25 June 2026|
+| Windows Server VM — Active Directory Domain Services (AD DS), Domain Controller | 29 June 2026 |
+| Impacket | 13 July 2026 |
 
 ---
 
-## Lab Network Diagram (soon)
+## Lab Network Diagram
 
-> Created with draw.io. Shows the VM layout, network configuration, and monitoring flow from endpoint to SIEM.
-
-> (Insert network diagram image here)
+![image](/assets/images/networkdiagram.png)
 
 **Network summary:**
 
@@ -350,7 +345,7 @@ Kali Linux (attacker)
  
 ---
  
-#### Day 16 — Final Portfolio Summary
+#### ✅ Day 16 — Final Portfolio Summary
  
 **Topics:**
  
