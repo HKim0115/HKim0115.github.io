@@ -305,7 +305,7 @@ This day replaces the previously planned SMB investigation, which overlapped too
  
 ---
  
-#### ✅ Day 15 — End-to-End Attack Scenario Investigation ⭐
+#### ✅ [Day 15 — End-to-End Attack Scenario Investigation](https://hkim0115.github.io/homelab/Day-15-End-to-End-Attack-Scenario/) ⭐
 
 > This is the centrepiece of the portfolio. All individual simulations are connected into a single investigation that mirrors a real SOC workflow.
 
