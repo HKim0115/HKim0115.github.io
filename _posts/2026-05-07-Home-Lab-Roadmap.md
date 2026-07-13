@@ -305,54 +305,39 @@ This day replaces the previously planned SMB investigation, which overlapped too
  
 ---
  
-#### Day 15 — PowerShell Abuse Simulation
- 
-**Topics:**
- 
-- Encoded PowerShell command execution from Kali
-- Sysmon Event ID 1 and 3 telemetry analysis
-- Splunk detection of encoded commands
-- Suspicious parent-child process analysis
-**MITRE ATT&CK mapping:**
- 
-| Observation | Tactic | Technique | ID |
-|---|---|---|---|
-| Encoded PowerShell executed | Execution | Command and Scripting Interpreter: PowerShell | T1059.001 |
- 
----
- 
-#### Day 16 — End-to-End Attack Scenario Investigation ⭐
- 
+#### ✅ Day 15 — End-to-End Attack Scenario Investigation ⭐
+
 > This is the centrepiece of the portfolio. All individual simulations are connected into a single investigation that mirrors a real SOC workflow.
- 
+
 **Scenario flow:**
- 
-```
+
+\`\`\`
 Kali Linux (attacker)
   └─ Brute-force login attempts (Win11)        → Event ID 4625 (multiple failures)
       └─ Successful authentication (Win11)     → Event ID 4624 (Initial Access / Credential Access)
-          └─ Lateral movement: Win11 → DC      → PsExec / Impacket psexec.py
-                                                   Sysmon EID 1 (process creation), EID 3 (network connection)
-                                                   Security 4624 (Logon_Type=3), Service creation 7045
-                                                   Kerberos 4768 / 4769 / 4776 on the DC
-                                                   (T1021.002 — true lateral movement, second hop)
-              └─ PowerShell execution on DC     → Sysmon Event ID 1
-                  └─ (Optional) outbound C2-style connection → Sysmon Event ID 3 (T1071)
-                      └─ Splunk detects the full chain
-                          └─ Investigation report written
-```
- 
+          └─ Discovery: AD ACL enumeration      → GenericAll on Domain Admins group discovered (dacledit.py)
+              └─ Privilege Escalation           → self-added to Domain Admins → Event ID 4728
+                                                    (Subject account == Member account, self-elevation pattern)
+                  └─ Lateral movement: Win11 → DC   → PsExec / Impacket psexec.py
+                                                        Sysmon EID 1 (process creation)
+                                                        Security 4624 (Logon_Type=3), Service creation 7045
+                                                        (T1021.002 — true lateral movement, second hop)
+                      └─ Command execution on DC   → cmd-based discovery: whoami, net user, net group, findstr
+                                                        Sysmon Event ID 1
+                          └─ Splunk detects the full chain
+                              └─ Investigation report written
+\`\`\`
+
 **Topics:**
- 
+
 - Full attack Kill Chain reproduced in the lab, now spanning two internal hosts (Win11 and the Domain Controller)
 - Why Kali → Win11 is Initial Access / Credential Access, and Win11 → DC is the actual Lateral Movement step — the distinction depends on whether the hop starts from an already-compromised internal host
+- A misconfigured GenericAll ACE on the Domain Admins group object, discovered and abused for self-elevation before the lateral movement stage
 - End-to-end event tracking in Splunk using SPL
-- **IOC summary table** consolidating indicators across every stage of the chain — failed/successful logon timestamps, source IPs, account names, process names, service names, and Kerberos ticket events — cross-referenced against endpoint and network log sources
-- MITRE ATT&CK tactic mapping across the chain — Initial Access → Credential Access → Lateral Movement → Execution → (Command and Control, if simulated)
-- AV/Defender handling decision documented (disabled with rationale, or a lower-signature method used) — if a step is blocked, the block itself is treated as valid detection content rather than a failure
-- **Investigation report written in standard IR format:** Timeline / Affected Assets / MITRE ATT&CK Mapping / Containment Action / Lessons Learned
-- Published as a blog post
-This day merges what was previously planned as two separate days (a standalone IOC correlation day, plus the end-to-end scenario), since the IOC correlation work is naturally part of investigating the full chain and didn't justify a separate post on its own.
+- **IOC summary table** consolidating indicators across every stage of the chain — failed/successful logon timestamps, source IPs, account names, process names, service names — cross-referenced against endpoint log sources
+- MITRE ATT&CK tactic mapping across the chain — Credential Access → Discovery → Privilege Escalation → Lateral Movement → Execution
+- AV/Defender handling decision documented (disabled with rationale) — Defender was turned off on both Win11 and the DC to allow the full chain to complete end to end
+- **Investigation report written in standard IR format:** Executive Summary / Severity / Timeline / Affected Assets / Root Cause / Detection / Containment / Eradication / Recovery / Lessons Learned
  
 ---
  
@@ -365,7 +350,7 @@ This day merges what was previously planned as two separate days (a standalone I
  
 ---
  
-#### Day 17 — Detection Rules & Monitoring Summary
+#### Day 16 — Detection Rules & Monitoring Summary
  
 **Topics:**
  
@@ -377,7 +362,7 @@ This day merges what was previously planned as two separate days (a standalone I
 - Lessons learned
 ---
  
-#### Day 18 — Final Portfolio Summary
+#### Day 17 — Final Portfolio Summary
  
 **Topics:**
  
