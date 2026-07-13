@@ -1,5 +1,5 @@
 ---
-title: "Day 17 — Final Portfolio Summary"
+title: "Day 16 — Final Portfolio Summary"
 categories: [HomeLab]
 ---
 

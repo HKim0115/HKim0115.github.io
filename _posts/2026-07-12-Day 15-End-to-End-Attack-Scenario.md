@@ -1,5 +1,5 @@
 ---
-title: "Day 15 - End-to-End Attack Scenario Investigation"
+title: "Day 15 - End-to-End Attack Scenario Investigation⭐"
 categories: [HomeLab]
 ---
 
