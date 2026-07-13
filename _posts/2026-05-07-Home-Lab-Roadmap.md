@@ -311,7 +311,7 @@ This day replaces the previously planned SMB investigation, which overlapped too
 
 **Scenario flow:**
 
-\`\`\`
+```
 Kali Linux (attacker)
   └─ Brute-force login attempts (Win11)        → Event ID 4625 (multiple failures)
       └─ Successful authentication (Win11)     → Event ID 4624 (Initial Access / Credential Access)
@@ -326,7 +326,7 @@ Kali Linux (attacker)
                                                         Sysmon Event ID 1
                           └─ Splunk detects the full chain
                               └─ Investigation report written
-\`\`\`
+```
 
 **Topics:**
 
