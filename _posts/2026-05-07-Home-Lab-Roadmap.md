@@ -350,55 +350,51 @@ Kali Linux (attacker)
  
 ---
  
-#### Day 16 — Detection Rules & Monitoring Summary
- 
-**Topics:**
- 
-- Detection examples with SPL queries
-- Alert workflow summary
-- Kerberos authentication detection (4768 / 4769 / 4776) added to the detection set
-- **False positive tuning** — note on any alert adjusted after being too sensitive, and why
-- Full MITRE ATT&CK mapping table (all techniques observed across the lab)
-- Lessons learned
----
- 
-#### Day 17 — Final Portfolio Summary
+#### Day 16 — Final Portfolio Summary
  
 **Topics:**
  
 - Full project reflection
 - Technical growth documented
-- Blue Team concepts and skills demonstrated
-- GitHub blog final review and clean-up
+- Lessons Learned
 - Future improvements noted
+- Mitre ATT&CK Mapping Summary
+
 ---
  
 ## MITRE ATT&CK Mapping Summary
  
 > This table consolidates all techniques observed across the lab. It demonstrates the ability to connect raw log observations to a recognised threat framework — a core SOC analyst skill.
  
-| Lab exercise | Tactic | Technique | ID |
+| Lab Exercise | Tactic | Technique | ID |
 |---|---|---|---|
 | Nmap port scanning | Reconnaissance | Active Scanning | T1595 |
 | SMB enumeration | Discovery | Network Share Discovery | T1135 |
-| Brute-force login simulation | Credential Access | Brute Force | T1110.001 |
-| Privileged group membership change (Domain Admins) | Persistence | Account Manipulation | T1098 |
-| PowerShell execution monitoring | Execution | Command and Scripting Interpreter: PowerShell | T1059.001 |
-| Lateral movement, Win11 → DC via PsExec | Lateral Movement | SMB/Windows Admin Shares | T1021.002 |
-| DNS query monitoring (Sysmon ID 22) | Command and Control | Application Layer Protocol | T1071 |
+| Repeated failed RDP logins (Hydra) | Credential Access | Brute Force | T1110.001 |
+| PowerShell / ADSI execution | Execution | Command and Scripting Interpreter: PowerShell | T1059.001 |
 | Suspicious file creation (Sysmon ID 11) | Defense Evasion | Masquerading | T1036 |
- 
+| DNS query monitoring (Sysmon ID 22) | Command and Control | Application Layer Protocol | T1071 |
+| ACL enumeration on Domain Admins (dacledit.py) | Discovery | Permission Groups Discovery | T1069.002 |
+| GenericAll abused for self-elevation | Persistence / Privilege Escalation | Account Manipulation | T1098 |
+| Win11 → DC via PsExec | Lateral Movement | SMB/Windows Admin Shares | T1021.002 |
+| whoami / net user / net group post-exploitation | Discovery | Account Discovery | T1087 |
+| Kerberos ticket request pattern (4769) | Credential Access | Kerberoasting | T1558.003 |
+
 ---
- 
+
 ## Portfolio Summary
- 
+
 **Practical skills demonstrated:**
- 
+
 - Network visibility — Nmap, Wireshark
 - Windows authentication logging — Event Viewer, Event ID 4624 / 4625
 - Endpoint telemetry — Sysmon Event ID 1, 3, 11, 22
 - Active Directory deployment and domain-based authentication — Kerberos Event ID 4768 / 4769 / 4776
-- SIEM monitoring — Splunk (detection, alerting, dashboard)
+- AD administration and privilege investigation — dsacls, ADSI PowerShell, Event ID 4720 / 4724 / 4728 / 4729 / 4740
+- Adversary simulation — Hydra (brute force), Impacket (dacledit.py, psexec.py)
+- Privilege escalation and lateral movement analysis — ACL misconfiguration abuse, Win11 → DC pivot
+- SIEM monitoring and detection engineering — Splunk (SPL alerting, dashboards, false positive tuning)
 - Incident investigation — end-to-end, multi-host attack scenario
+- Incident report writing — standard IR format (Executive Summary through Lessons Learned)
 - Threat framework mapping — MITRE ATT&CK
 - Technical documentation — GitHub blog with structured investigation notes
