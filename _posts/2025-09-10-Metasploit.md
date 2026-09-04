@@ -1,5 +1,6 @@
 ---
-categories: [TryHackMe]
+categories: [TryHackMe] 
+published: false
 ---
 
 # Metasploit Study Notes

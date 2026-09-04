@@ -1,5 +1,6 @@
 ---
-categories: [TryHackMe]
+categories: [TryHackMe] 
+published: false
 ---
 
 # Linux Fundaental 2

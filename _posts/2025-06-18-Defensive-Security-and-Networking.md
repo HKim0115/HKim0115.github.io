@@ -1,5 +1,6 @@
 ---
-categories: [TryHackMe]
+categories: [TryHackMe] 
+published: false
 ---
 
 # concept of Defensive security and network 

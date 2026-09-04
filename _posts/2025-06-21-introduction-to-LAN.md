@@ -1,5 +1,6 @@
 ---
-categories: [TryHackMe]
+categories: [TryHackMe] 
+published: false
 ---
 
 # Introduction to LAN (Local Area Network) 
