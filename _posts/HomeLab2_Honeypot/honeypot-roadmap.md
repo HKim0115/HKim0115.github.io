@@ -1,3 +1,9 @@
+---
+categories: [Honey Pot]
+title: "Day 1. Setting Environments"
+---
+
+
 # Honeypot Project Roadmap
 
 Cloud VPS honeypot (Cowrie + Splunk)
