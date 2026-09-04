@@ -2,9 +2,7 @@
 main:
   - title: "Home"
     url: /
-  - title: "HomeLab"
-    url: /categories/#homelab
-  - title: "Category"
+  - title: "Projects"
     url: /categories/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
