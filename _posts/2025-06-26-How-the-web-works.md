@@ -1,5 +1,6 @@
 ---
 categories : [TryHackMe]
+published: false
 ---
 
 ## How Websites Work
