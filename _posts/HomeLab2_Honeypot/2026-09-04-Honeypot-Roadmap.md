@@ -4,8 +4,6 @@ title: "Honeypot Roadmap"
 ---
 
 
-# Honeypot Project Roadmap
-
 Cloud VPS honeypot (Cowrie + Splunk)
 
 ## Step 1: Environment Setup (Day 1-2)
