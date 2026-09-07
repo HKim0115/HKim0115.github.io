@@ -4,63 +4,65 @@ title: "Honeypot Roadmap"
 ---
 
 
+Honeypot Project
+
+
+
 Cloud VPS honeypot (Cowrie + Splunk)
 
-## Step 1: Environment Setup (Day 1-2)
+## Phase 1: Environment Setup
 
-- Day 1
-  - Spin up VPS (DigitalOcean / Vultr / Lightsail)
-  - Set billing alerts
-  - Harden: new SSH key, change admin port, firewall rules
-  - install Splunk
-- Day 2
-  - Install Cowrie
-  - Customize hostname / banner
-  - Local test, confirm logging works
-  - Register as systemd service (auto-restart)
+- Spin up VPS (AWS Lightsail)
+- Harden: new SSH key, change admin port, firewall rules
+- Install Cowrie
+- Customize hostname / banner
+- Local test, confirm logging works
 
-**Milestone 1:** VPS hardened, Splunk installed, Cowrie live and logging locally.
+**Milestone 1:** VPS hardened, Splunk ready, Cowrie live and logging locally.
 
-## Step 2: Splunk Integration (Day 3-4)
+## Phase 2: Web Honeypot
 
-- Day 3
-  - Enable HTTP Event Collector (HEC)
-  - Test event send from VPS
-  - Forward Cowrie JSON logs to Splunk
-  - Set up field extraction (source IP, credentials, commands)
-- Day 4
-  - Build dashboard (attempt counts, country distribution, credential patterns)
+- Build/deploy a fake web app (login page or common admin panel look-alike)
+- Cover common attacker-probed paths (e.g. /wp-admin, /.env, /admin)
+- Run it on an internal port, redirect public port 80 (and 443 if used) to it via iptables — same pattern as the Cowrie port redirect
+- Log every request: path, method, headers/User-Agent, submitted payloads (SQLi attempts, credential stuffing, etc.)
+- Register as systemd service
+- Local test, confirm logging works alongside Cowrie
 
-**Milestone 2:** Cowrie logs flowing into Splunk in real time, dashboard working.
+**Milestone 2:** Web honeypot live, public port 80 routes to the fake app, requests logged locally.
 
-## Step 3: Data Collection (Day 5-11)
+## Phase 3: Splunk Integration
 
-- Let honeypot run and collect real attack traffic
-- Daily check: service up, logs accumulating
+- Enable HTTP Event Collector (HEC)
+- Test event send from VPS
+- Forward Cowrie + web honeypot logs to Splunk
+- Set up field extraction (source IP, credentials, commands, request paths/payloads)
+- Build dashboard (attempt counts, country distribution, credential patterns, attack type breakdown)
+
+**Milestone 3:** Cowrie and web honeypot logs flowing into Splunk in real time, dashboard working.
+
+## Phase 4: Data Collection
+
+- Let honeypots run and collect real attack traffic
+- Daily check: services up, logs accumulating
 - Take an instance snapshot at some point in this window
 
-**Milestone 3:** A week of real attack data collected, no downtime, snapshot saved.
+**Milestone 4:** A week of real attack data collected across both honeypots, no downtime, snapshot saved.
 
-## Step 4: Analysis and Documentation (Day 12-14)
+## Phase 5: Analysis and Documentation
 
-- Day 12
-  - Review data: top IPs, credential patterns, notable command sequences
-  - Map findings to MITRE ATT&CK
-- Day 13
-  - Finalize dashboard for screenshots
-  - Write analysis post (results-focused, not setup steps)
-- Day 14
-  - Publish to GitHub portfolio, update README
+- Review data: top IPs, credential patterns, notable command sequences, web attack types
+- Map findings to MITRE ATT&CK
+- Finalize dashboard for screenshots
+- Write analysis post (results-focused, not setup steps)
+- Publish to GitHub portfolio, update README
 
-**Milestone 4:** Analysis complete, mapped to ATT&CK, published as results-focused post.
+**Milestone 5:** Analysis complete, mapped to ATT&CK, published as results-focused post.
 
-## Step 5: Wrap-up (Day 15)
+## Phase 6: Wrap-up
 
 - Save final snapshot, decide keep-running vs. teardown
 - Update resume and LinkedIn
-- Short retrospective: what was learned, what's next (web honeypot, other protocols, etc.)
+- Short retrospective: what was learned, what's next (RDP honeypot, other protocols, etc.)
 
-**Milestone 5:** Project closed out, reflected in portfolio, resume, and LinkedIn.
-
-
-
+**Milestone 6:** Project closed out, reflected in portfolio, resume, and LinkedIn.
