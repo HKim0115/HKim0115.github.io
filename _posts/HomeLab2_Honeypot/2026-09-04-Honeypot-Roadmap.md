@@ -18,7 +18,7 @@ Cloud VPS honeypot (AWS + Cowrie + Splunk)
 - Customize hostname / banner
 - Local test, confirm logging works
 
-**Milestone 1:** VPS hardened, Splunk ready, Cowrie live and logging locally.
+**Milestone 1:** VPS hardened, Cowrie live, logging and testing locally.
 
 ## Phase 2: Web Honeypot
 
