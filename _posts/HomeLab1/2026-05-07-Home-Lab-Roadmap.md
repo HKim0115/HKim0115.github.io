@@ -1,6 +1,7 @@
 ---
 title: "Cybersecurity Homelab Roadmap"
 categories: [HomeLab]
+permalink: /projects/home-lab/
 ---
 
 # Building My Cybersecurity Homelab Journey

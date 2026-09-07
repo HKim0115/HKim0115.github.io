@@ -1,4 +1,32 @@
 ---
 layout: home
 author_profile: true
+feature_row:
+  - image_path: /assets/images/networkdiagram.png
+    alt: "Home Lab"
+    title: "Home Lab"
+    excerpt: "Self-built lab covering VM networking, Active Directory, Sysmon, and Splunk SIEM detection, from setup through a full end-to-end attack investigation."
+    url: "/projects/home-lab/"
+    btn_label: "View Roadmap"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/Honeypot/textlog.png
+    alt: "Honeypot Project"
+    title: "Honeypot Project"
+    excerpt: "Cowrie + web honeypot on a hardened cloud VPS, forwarding live attack traffic to Splunk for MITRE ATT&CK-mapped analysis."
+    url: "/projects/honeypot/"
+    btn_label: "View Roadmap"
+    btn_class: "btn--primary"
+feature_row2:
+  - title: "CompTIA Security+"
+    excerpt: "Industry-recognized certification covering core security concepts, threats, and operations."
+  - title: "Google Cybersecurity Certificate"
+    excerpt: "Professional certificate covering SOC fundamentals, network security, and incident response."
 ---
+
+## Featured Projects
+
+{% include feature_row %}
+
+## Certifications
+
+{% include feature_row id="feature_row2" %}

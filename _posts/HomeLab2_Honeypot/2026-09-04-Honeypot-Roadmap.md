@@ -1,6 +1,7 @@
 ---
 categories: [Honey Pot]
 title: "Honeypot Roadmap"
+permalink: /projects/honeypot/
 ---
 
 
