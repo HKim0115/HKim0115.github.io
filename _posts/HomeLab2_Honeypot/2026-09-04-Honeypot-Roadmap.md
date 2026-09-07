@@ -8,7 +8,7 @@ Honeypot Project
 
 
 
-Cloud VPS honeypot (Cowrie + Splunk)
+Cloud VPS honeypot (AWS + Cowrie + Splunk)
 
 ## Phase 1: Environment Setup
 
