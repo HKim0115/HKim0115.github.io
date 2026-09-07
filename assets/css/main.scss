@@ -24,3 +24,34 @@ search: false
   height: 100%;
   object-fit: contain;
 }
+
+/* Equal-height feature cards with the roadmap button pinned to the bottom */
+@media (min-width: 600px) {
+  .feature__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+  }
+
+  .feature__item {
+    float: none;
+    width: calc(50% - 1em) !important;
+    margin: 0 !important;
+  }
+}
+
+.feature__item .archive__item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.feature__item .archive__item-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.feature__item .archive__item-body p:last-child {
+  margin-top: auto;
+}
