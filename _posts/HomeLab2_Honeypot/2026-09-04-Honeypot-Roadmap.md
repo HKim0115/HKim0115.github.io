@@ -7,7 +7,7 @@ permalink: /projects/honeypot/
 
 Honeypot Project
 
-
+![Honeypot Architecture](assets/images/Honeypot/architecture.png)
 
 Cloud VPS honeypot (AWS + Cowrie + Splunk)
 
