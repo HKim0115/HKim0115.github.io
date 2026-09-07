@@ -117,7 +117,7 @@ author:
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Aspiring **SOC Analyst** building hands-on security projects to develop detection and response skills."
   location         : "Sydney"
-  email            : "hanul.kim0115@gmail.com"
+  email            : 
   links:
 #    - label: "Email"
 #      icon: "fas fa-fw fa-envelope-square"
@@ -320,7 +320,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: # true
       comments: # true
-      share: true
+      share: false
       related: true
