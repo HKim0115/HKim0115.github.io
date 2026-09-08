@@ -1,6 +1,6 @@
 ---
 categories: [Honey Pot]
-title: "Honeypot Phase 1. Environment Setup"
+title: "Phase 1. Environment Setup"
 ---
 
 This phase kept the real server and the fake one (honeypot) completely separate — admin access stays locked down, while attackers get funneled into the honeypot without realizing it. Next up: adding a web honeypot and wiring both honeypots' logs into Splunk for real-time analysis.

@@ -1,6 +1,6 @@
 ---
 categories: [Honey Pot]
-title: "Honeypot Phase 2. Setting up a Web Honeypot"
+title: "Phase 2. Setting up a Web Honeypot"
 
 ---
 

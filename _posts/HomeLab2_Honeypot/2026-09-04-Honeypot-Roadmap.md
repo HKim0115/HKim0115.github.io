@@ -11,7 +11,7 @@ Honeypot Project
 
 Cloud VPS honeypot (AWS + Cowrie + Splunk)
 
-## Phase 1: Environment Setup
+## [Phase 1: Environment Setup](https://hkim0115.github.io/honey%20pot/Phase-1-Environment-Setup/)
 
 - Spin up VPS (AWS Lightsail)
 - Harden: new SSH key, change admin port, firewall rules
@@ -21,7 +21,7 @@ Cloud VPS honeypot (AWS + Cowrie + Splunk)
 
 **Milestone 1:** VPS hardened, Cowrie live, logging and testing locally.
 
-## Phase 2: Web Honeypot
+## [Phase 2: Web Honeypot](https://hkim0115.github.io/honey%20pot/Phase-2-Web-Honeypot/)
 
 - Build/deploy a fake web app (login page or common admin panel look-alike)
 - Cover common attacker-probed paths (e.g. /wp-admin, /.env, /admin)
