@@ -1,11 +1,9 @@
 ---
 categories: [Honey Pot]
-title: "Honeypot Roadmap"
+title: "Honeypot Project Roadmap"
 permalink: /projects/honeypot/
 ---
 
-
-Honeypot Project
 
 ![Honeypot Architecture](/assets/images/Honeypot/architecture.png)
 
