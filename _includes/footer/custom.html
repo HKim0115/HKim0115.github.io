@@ -1,3 +1,48 @@
 <!-- start custom footer snippets -->
+<style>
+.img-lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+.img-lightbox-overlay.active {
+  display: flex;
+}
+.img-lightbox-overlay img {
+  max-width: 95vw;
+  max-height: 95vh;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+.page__content img {
+  cursor: zoom-in;
+}
+</style>
 
+<div class="img-lightbox-overlay" id="img-lightbox-overlay">
+  <img id="img-lightbox-img" src="" alt="">
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var overlay = document.getElementById('img-lightbox-overlay');
+  var overlayImg = document.getElementById('img-lightbox-img');
+
+  document.querySelectorAll('.page__content img').forEach(function (img) {
+    img.addEventListener('click', function () {
+      overlayImg.src = img.src;
+      overlay.classList.add('active');
+    });
+  });
+
+  overlay.addEventListener('click', function () {
+    overlay.classList.remove('active');
+    overlayImg.src = '';
+  });
+});
+</script>
 <!-- end custom footer snippets -->
