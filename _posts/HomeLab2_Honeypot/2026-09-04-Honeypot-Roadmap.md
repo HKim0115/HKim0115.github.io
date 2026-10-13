@@ -48,13 +48,12 @@ Cloud VPS honeypot (AWS + Cowrie + Splunk)
 
 **Milestone 4:** A week of real attack data collected across both honeypots, no downtime, snapshot saved.
 
-## Phase 5: Analysis and Documentation
+## [Phase 5: Analysis and Documentation](https://hkim0115.github.io/honey%20pot/Phase-5-Analysis/)
 
 - Review data: top IPs, credential patterns, notable command sequences, web attack types
 - Map findings to MITRE ATT&CK
 - Finalize dashboard for screenshots
 - Write analysis post (results-focused, not setup steps)
-- Publish to GitHub portfolio, update README
 
 **Milestone 5:** Analysis complete, mapped to ATT&CK, published as results-focused post.
 

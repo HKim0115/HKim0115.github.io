@@ -40,9 +40,13 @@ Five spikes stand out. I started with the biggest one: the SSH spike on 16 Septe
 
 The questions I wanted to answer: **who, how many, how, and did it work?**
 
-**Who.** If the traffic comes from one or two IPs, it points to a single-source brute force. If it comes from many, it is a distributed attack, and the analysis and response change.
+**Who** 
 
-**Did it work?** In this project, login success on its own does not mean much, because Cowrie accepts most passwords. What matters is what happened *after* login. Running commands or downloading files separates a simple scan from a real intrusion attempt.
+If the traffic comes from one or two IPs, it points to a single-source brute force. If it comes from many, it is a distributed attack, and the analysis and response change.
+
+**Did it work?**
+
+In this project, login success on its own does not mean much, because Cowrie accepts most passwords. What matters is what happened *after* login. Running commands or downloading files separates a simple scan from a real intrusion attempt.
 
 ### Step 1. Who sent the traffic?
 
@@ -182,7 +186,9 @@ index=Honeypot sourcetype=cowrie_json (eventid=cowrie.login.* OR eventid=cowrie.
 
 The alert runs every 5 minutes over the last 5 minutes. The output fields answer what an analyst asks first: did it succeed, did it run commands, which accounts, and is it still going.
 
-**Throttling.** Without throttling, 2.3.98.95 alone would have triggered 35 alerts over three hours. With a 1-hour throttle on `src_ip`, the same attacker alerts at most once an hour (3 alerts instead of 35), while a different IP still alerts straight away.
+**Throttling** 
+
+Without throttling, 2.3.98.95 alone would have triggered 35 alerts over three hours. With a 1-hour throttle on `src_ip`, the same attacker alerts at most once an hour (3 alerts instead of 35), while a different IP still alerts straight away.
 
 
 ---
@@ -190,6 +196,7 @@ The alert runs every 5 minutes over the last 5 minutes. The output fields answer
 ## Verdict and Response
 
 **Verdict:** True positive. Automated brute force attack.
+
 **Severity:** Low (Honeypot, no real credentials or data).
 
 **If this were a real server:**
