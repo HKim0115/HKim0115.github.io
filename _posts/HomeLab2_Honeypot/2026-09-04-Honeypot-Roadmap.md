@@ -30,7 +30,7 @@ Cloud VPS honeypot (AWS + Cowrie + Splunk)
 
 **Milestone 2:** Web honeypot live, public port 80 routes to the fake app, requests logged locally.
 
-## Phase 3: Splunk Integration
+## [Phase 3: Splunk Integration](https://hkim0115.github.io/honey%20pot/Phase-3-Splunk-Integration/)
 
 - Enable HTTP Event Collector (HEC)
 - Test event send from VPS
