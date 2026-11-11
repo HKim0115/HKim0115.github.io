@@ -19,7 +19,7 @@ What happened? → Which session looks odd? → What exactly did it do? → Why?
 ## 1. What happened? Get the big picture
 My honeypot accepts most logins, so a successful login tells me little. What matters is what the attacker does **after** logging in. I counted commands per session to get a rough picture first.
 
-📷 [Screenshot: commands per session](/assets/images/Honeypot/phase5b/1_ip-command-counts.png)
+![Screenshot: commands per session](/assets/images/Honeypot/phase5b/1_ip-command-counts.png)
 
 - **Observed:** a few sessions run many commands.
 - **Next question:** which one looks suspicious?
@@ -30,7 +30,7 @@ I removed my own demo sessions and picked `83.145.42.126`: one session, 9 comman
 ## 3. What exactly did it do? Build the timeline
 I searched by **session ID**, not by IP. One session ID is one connection, so other connections do not mix into the story. I also filtered to command events only, which removed connection noise.
 
-📷 [Screenshot: session timeline](/assets/images/Honeypot/phase5b/2_session-timeline.png)
+![Screenshot: session timeline](/assets/images/Honeypot/phase5b/2_session-timeline.png)
 
 | Time | Command |
 |---|---|
@@ -64,12 +64,12 @@ I grouped the commands by what they are for.
 ## 5. Is this the first time? Check the IP history
 I searched the IP across all time. It appeared once in my honeypot: 1 session, 34 events, SSH only, on September 6.
 
-📷 [Screenshot: IP history](/assets/images/Honeypot/phase5b/)
+![Screenshot: IP history](/assets/images/Honeypot/phase5b/)
 
 ## 6. Is it a known bad IP? Check reputation
 I looked up the IP on VirusTotal.
 
-📷 [Screenshot: VirusTotal summary, account name hidden](/assets/images/Honeypot/phase5b/)
+![Screenshot: VirusTotal summary, account name hidden](/assets/images/Honeypot/phase5b/)
 
 - 5 of 92 vendors flag it as malicious. It belongs to a Swedish ISP (GlobalConnect AB).
 - Guardpot reported **SSH brute force and port scanning from this IP between April and August**.
