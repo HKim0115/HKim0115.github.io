@@ -64,12 +64,12 @@ I grouped the commands by what they are for.
 ## 5. Is this the first time? Check the IP history
 I searched the IP across all time. It appeared once in my honeypot: 1 session, 34 events, SSH only, on September 6.
 
-![Screenshot: IP history](/assets/images/Honeypot/phase5b/)
+![Screenshot: IP history](/assets/images/Honeypot/phase5b/3_ip-history.png)
 
 ## 6. Is it a known bad IP? Check reputation
 I looked up the IP on VirusTotal.
 
-![Screenshot: VirusTotal summary, account name hidden](/assets/images/Honeypot/phase5b/)
+![Screenshot: VirusTotal summary, account name hidden](/assets/images/Honeypot/phase5b/4_virustotal.png)
 
 - 5 of 92 vendors flag it as malicious. It belongs to a Swedish ISP (GlobalConnect AB).
 - Guardpot reported **SSH brute force and port scanning from this IP between April and August**.
