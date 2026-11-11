@@ -1,6 +1,6 @@
 ---
 categories: [Honey Pot]
-title: "Phase 5. Analysis: Investigating a 3-Hour SSH Brute Force Burst"
+title: "Phase 5-A. Analysis: Investigating a 3-Hour SSH Brute Force Burst"
 ---
 
 In this post I analyse real attack traffic that my Honeypot server forwarded to Splunk. The Honeypot is a real server I deployed on a cloud VPS, so everything here came from actual attackers on the internet.
